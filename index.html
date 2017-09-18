@@ -1,0 +1,66 @@
+<head>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/highlight.min.js"></script>
+  <script type="text/javascript" src="js/html5shiv.js"></script>
+  <script type="text/javascript" src="js/respond.min.js"></script>
+  <script type="text/javascript" src="src/clockpicker.js"></script>
+  <script type="text/javascript" src="js/jquery-clockpicker.js"></script>
+  <script type="text/javascript" src="js/calculate.js"></script>
+
+  
+  <link rel="stylesheet" type="text/css" href="src/standalone.css">
+  <link rel="stylesheet" type="text/css" href="src/clockpicker.css">
+
+  <link rel="stylesheet" type="text/css" href="css/jquery-clockpicker.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+</head>
+
+<body>
+  
+  <section>
+    <div class="input-group">
+      <span class="input-group-addon">Work</span>
+      <input id="workHours" type="text" class="form-control"
+	     value="8" onkeypress='return event.charCode >= 48 &&
+      event.charCode <= 57'>
+	<span class="input-group-addon">h</span>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">Lunch</span>
+      <input id="lunchMinutes" type="text" class="form-control"
+	     value="30" onkeypress='return event.charCode >= 48 &&
+      event.charCode <= 57'>
+	<span class="input-group-addon">min</span>
+    </div>
+
+    <div class="input-group clockpicker">
+      <input id="startTime" type="text" class="form-control" value="08:00">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+      </span>
+    </div>
+
+    <div class="input-group">
+      <input id="endTime" type="text" class="form-control" value="00:00"
+	     readonly>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+      </span>
+    </div>
+            
+  </section>
+</body>
+
+<script>
+  $('.clockpicker').clockpicker();
+
+  $('#startTime').clockpicker({
+  autoclose: true,
+  afterDone: function() {
+  updateEndTime();
+  }
+  });
+</script>
