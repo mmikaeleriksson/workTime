@@ -23,4 +23,3 @@ function updateEndTime() {
 
     $("#endTime").val(hours + ":" + minutes);
 }
-

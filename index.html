@@ -4,27 +4,38 @@
   <script type="text/javascript" src="js/highlight.min.js"></script>
   <script type="text/javascript" src="js/html5shiv.js"></script>
   <script type="text/javascript" src="js/respond.min.js"></script>
-  <script type="text/javascript" src="src/clockpicker.js"></script>
+  <script type="text/javascript" src="js/clockpicker.js"></script>
   <script type="text/javascript" src="js/jquery-clockpicker.js"></script>
   <script type="text/javascript" src="js/calculate.js"></script>
 
   
-  <link rel="stylesheet" type="text/css" href="src/standalone.css">
-  <link rel="stylesheet" type="text/css" href="src/clockpicker.css">
-
+  <link rel="stylesheet" type="text/css" href="css/standalone.css">
+  <link rel="stylesheet" type="text/css" href="css/clockpicker.css">
   <link rel="stylesheet" type="text/css" href="css/jquery-clockpicker.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="css/worktime.css">
+
+  <title>WorkTime</title>
 </head>
 
-<body>
+<body onload="updateEndTime();">
   
   <section>
+    <div class="input-group clockpicker">
+      <input id="startTime" type="text" class="form-control" value="08:00">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+      </span>
+    </div>
+
     <div class="input-group">
       <span class="input-group-addon">Work</span>
       <input id="workHours" type="text" class="form-control"
 	     value="8" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'>
+      event.charCode <= 57'
+			onchange="updateEndTime();"
+			onKeyDown="if(event.keyCode==13) updateEndTime();">
 	<span class="input-group-addon">h</span>
     </div>
 
@@ -32,15 +43,10 @@
       <span class="input-group-addon">Lunch</span>
       <input id="lunchMinutes" type="text" class="form-control"
 	     value="30" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'>
+      event.charCode <= 57'
+			onchange="updateEndTime();"
+			onKeyDown="if(event.keyCode==13) updateEndTime();">
 	<span class="input-group-addon">min</span>
-    </div>
-
-    <div class="input-group clockpicker">
-      <input id="startTime" type="text" class="form-control" value="08:00">
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-time"></span>
-      </span>
     </div>
 
     <div class="input-group">

@@ -1,0 +1,16 @@
+
+section {
+    padding-top: 15em;
+}
+
+.input-group {
+    margin-top: 0.5em;
+}
+
+body {
+    background: #9ceaed; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #9ceaed 0%, #7ae0ff 53%, #63aeff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ceaed', endColorstr='#63aeff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
