@@ -20,46 +20,48 @@
 </head>
 
 <body onload="updateEndTime();">
-  
-  <section>
-    <div class="input-group clockpicker">
-      <input id="startTime" type="text" class="form-control" value="08:00"
-	     onchange="updateEndTime();"
-	     onKeyDown="if(event.keyCode==13) updateEndTime();">
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-time"></span>
-      </span>
-    </div>
+  <div id="outer">
+    <div id="inner">
+      <section>
+	<div class="input-group clockpicker">
+	  <input id="startTime" type="text" class="form-control" value="08:00"
+		 onchange="updateEndTime();"
+		 onKeyDown="if(event.keyCode==13) updateEndTime();">
+	  <span class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+	  </span>
+	</div>
 
-    <div class="input-group">
-      <span class="input-group-addon">Work</span>
-      <input id="workHours" type="text" class="form-control"
-	     value="8" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'
-			onchange="updateEndTime();"
-			onKeyDown="if(event.keyCode==13) updateEndTime();">
-	<span class="input-group-addon">h</span>
-    </div>
+	<div class="input-group">
+	  <span class="input-group-addon">Work</span>
+	  <input id="workHours" type="text" class="form-control"
+		 value="8" onkeypress='return event.charCode >= 48 &&
+	  event.charCode <= 57'
+			    onchange="updateEndTime();"
+			    onKeyDown="if(event.keyCode==13) updateEndTime();">
+	    <span class="input-group-addon">h</span>
+	</div>
 
-    <div class="input-group">
-      <span class="input-group-addon">Lunch</span>
-      <input id="lunchMinutes" type="text" class="form-control"
-	     value="30" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'
-			onchange="updateEndTime();"
-			onKeyDown="if(event.keyCode==13) updateEndTime();">
-	<span class="input-group-addon">min</span>
-    </div>
+	<div class="input-group">
+	  <span class="input-group-addon">Lunch</span>
+	  <input id="lunchMinutes" type="text" class="form-control"
+		 value="30" onkeypress='return event.charCode >= 48 &&
+	  event.charCode <= 57'
+			    onchange="updateEndTime();"
+			    onKeyDown="if(event.keyCode==13) updateEndTime();">
+	    <span class="input-group-addon">min</span>
+	</div>
 
-    <div class="input-group">
-      <input id="endTime" type="text" class="form-control" value="00:00"
-	     readonly>
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-time"></span>
-      </span>
+	<div class="input-group">
+	  <input id="endTime" type="text" class="form-control" value="00:00"
+		 readonly>
+	  <span class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+	  </span>
+	</div>
+      </section>
     </div>
-            
-  </section>
+  </div>
 </body>
 
 <script>
