@@ -23,7 +23,9 @@
   
   <section>
     <div class="input-group clockpicker">
-      <input id="startTime" type="text" class="form-control" value="08:00">
+      <input id="startTime" type="text" class="form-control" value="08:00"
+	     onchange="updateEndTime();"
+	     onKeyDown="if(event.keyCode==13) updateEndTime();">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-time"></span>
       </span>
