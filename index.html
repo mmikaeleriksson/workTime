@@ -18,13 +18,20 @@
   <link rel="stylesheet" type="text/css" href="css/flipclock.css">
   <link rel="stylesheet" type="text/css" href="css/worktime.css">
 
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
   <title>WorkTime</title>
 </head>
 
 <body onload="updateEndTime();">
   <div id="outer">
     <div id="inner">
-      <section>
+
+      <div class="header middle">
+	<span class="workTimeText">WorkTime</span>
+      </div>
+
+      <section class="middle">
 	<div class="input-group clockpicker">
 	  <input id="startTime" type="text" class="form-control" value="08:00"
 		 onchange="updateEndTime();"
@@ -63,7 +70,11 @@
 	</div>
       </section>
 
-      <div class="clock"></div>
+      <div class="clock middle"></div>
+
+      <div id="overtime" class="middle">
+	<span>Overtime</span>
+      </div>
 
     </div>
   </div>

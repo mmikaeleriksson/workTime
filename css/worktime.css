@@ -11,9 +11,11 @@
     vertical-align: middle;
 }
 
+.middle {
+    margin: 0 auto;
+}
+
 section {
-    margin-left: auto;
-    margin-right: auto;
     width: 300px;
     border-radius: 8px;
     background: rgb(255,255,255);
@@ -36,9 +38,34 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ceaed', endColorstr='#63aeff',GradientType=1 );
 }
 
-
 .clock {
     width: 300px;
-    margin: 0 auto;
     padding-top: 5em;
+}
+
+.header {
+    width: 565px;
+    padding-bottom: 55px;
+}
+
+.workTimeText {
+    font-family:'Kaushan Script',cursive;
+    font-size: 100pt;
+    background-color: #068eb7;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
+
+#overtime {
+    width: 130px;
+    font-family:'Kaushan Script',cursive;
+    font-size: 25pt;
+    color: #FF0000;
+}
+
+.hidden {
+    visibility: hidden;
 }

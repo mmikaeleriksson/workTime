@@ -45,7 +45,18 @@ function startCountDown() {
     var countdownMinutes = (endMinutes - currentMinutes);
     countdownMinutes = countdownMinutes < 0 ? 0 : countdownMinutes;
 
-    var clock = $('.clock').FlipClock((countdownMinutes * 60), {
-	countdown: true
-    });
+    if (countdownMinutes > 0) {
+
+	$( "#overtime" ).addClass( "hidden" );
+	var clock = $('.clock').FlipClock((countdownMinutes * 60), {
+	    countdown: true
+	});
+    }
+    else {
+	countdownMinutes = (currentMinutes - endMinutes);
+
+	$( "#overtime" ).removeClass( "hidden" );
+	var clock = $('.clock').FlipClock((countdownMinutes * 60), {
+	});
+    }
 }
