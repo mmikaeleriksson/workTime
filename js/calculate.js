@@ -9,7 +9,8 @@ function firstUpdate()
     }
 
     if (Cookies.get("startTime")) {
-	$("#startTime").val(Cookies.get("startTime"));
+	var startTime = Cookies.get("startTime").match(/(\d{2})/g);;
+	$("#startTime").val(startTime[0] + ":" + startTime[1]);
     }
 
     updateEndTime();
