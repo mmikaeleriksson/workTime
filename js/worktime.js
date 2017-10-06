@@ -1,7 +1,7 @@
 function firstUpdate()
 {
     if (Cookies.get("allowCookies")) {
-	$( "#cookiesConfirmation" ).hide();	
+	$( "#cookiesConfirmation" ).hide();
 	
 	if (Cookies.get("workHours")) {
 	    $( "#workHours" ).val(Cookies.get("workHours"));
@@ -20,6 +20,9 @@ function firstUpdate()
 	    console.log("show collapsable!");
 	    $( "#collapsable" ).collapse( "show" );
 	}
+    }
+    else {
+	$( "#cookiesConfirmation" ).removeClass("hidden");
     }
 
     updateEndTime();
