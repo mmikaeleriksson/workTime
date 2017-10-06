@@ -1,25 +1,32 @@
 function firstUpdate()
 {
-    if (Cookies.get("workHours")) {
-	$("#workHours").val(Cookies.get("workHours"));
-    }
+    if (Cookies.get("allowCookies")) {
+	if (Cookies.get("workHours")) {
+	    $( "#workHours" ).val(Cookies.get("workHours"));
+	}
 
-    if (Cookies.get("lunchMinutes")) {
-	$("#lunchMinutes").val(Cookies.get("lunchMinutes"));
-    }
+	if (Cookies.get("lunchMinutes")) {
+	    $( "#lunchMinutes" ).val(Cookies.get("lunchMinutes"));
+	}
 
-    if (Cookies.get("startTime")) {
-	var startTime = Cookies.get("startTime").match(/(\d{2})/g);;
-	$("#startTime").val(startTime[0] + ":" + startTime[1]);
+	if (Cookies.get("startTime")) {
+	    var startTime = Cookies.get("startTime").match(/(\d{2})/g);;
+	    $( "#startTime" ).val(startTime[0] + ":" + startTime[1]);
+	}
+
+	if (Cookies.get("collapse")) {
+	    console.log("show collapsable!");
+	    $( "#collapsable" ).collapse( "show" );
+	}
     }
 
     updateEndTime();
 }
 
 function updateEndTime() {
-    var workHours = $("#workHours").val();
-    var lunchMinutes = $("#lunchMinutes").val();
-    var startTime = $("#startTime").val();
+    var workHours = $( "#workHours" ).val();
+    var lunchMinutes = $( "#lunchMinutes" ).val();
+    var startTime = $( "#startTime" ).val();
     var endTime;
 
     var date = new Date(Date.now());
@@ -41,10 +48,12 @@ function updateEndTime() {
 
     $("#endTime").val(hours + ":" + minutes);
 
-    //Cookies
-    Cookies.set('workHours', workHours);
-    Cookies.set('lunchMinutes', lunchMinutes);
-    Cookies.set('startTime', startTime);
+    if (Cookies.get("allowCookies")) {
+	//Cookies
+	Cookies.set('workHours', workHours);
+	Cookies.set('lunchMinutes', lunchMinutes);
+	Cookies.set('startTime', startTime);
+    }
 
     startCountDown();
 }
@@ -52,7 +61,7 @@ function updateEndTime() {
 
 function startCountDown() {
     var currentDate = new Date(Date.now());
-    var endTime = $("#endTime").val();
+    var endTime = $( "#endTime"  ).val();
     endTime = endTime.split(":");
 
     var endDate = new Date();
@@ -82,4 +91,21 @@ function startCountDown() {
 	var clock = $('.clock').FlipClock((countdownMinutes * 60), {
 	});
     }
+
+    if (Cookies.get("allowCookies") &&
+	Cookies.get("collapse")) {
+	$( "#overtime").removeClass('hidden');
+    }
+}
+
+
+function allowCookies() {
+    $( "#cookiesConfirmation" ).hide();
+
+    Cookies.set("allowCookies", "1");
+}
+
+
+function refuseCookies() {
+    $( "#cookiesConfirmation" ).hide();
 }

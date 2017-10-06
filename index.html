@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="css/flipclock.css">
 
   <!-- Worktime -->
-  <script type="text/javascript" src="js/calculate.js"></script>
+  <script type="text/javascript" src="js/worktime.js"></script>
   <link rel="stylesheet" type="text/css" href="css/worktime.css">
 
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -73,7 +73,8 @@
       id="collapseButton"
       class="btn btn-info middle input-margin
 	     glyphicon glyphicon-plus-sign" data-toggle="collapse"
-      data-target="#collapsable">
+       data-target="#collapsable"
+       >
     </button>
   </section>
 
@@ -84,15 +85,46 @@
       <span>Overtime</span>
     </div>
   </div>
+
+  <div id="cookiesConfirmation" class="middle">
+    <button
+       id="closeCookieButton"
+       class="btn btn-default glyphicon glyphicon-remove-circle"
+       onClick="refuseCookies()"
+       >
+    </button>
+    <span>This page uses cookies to remember user changes.</span> </br></br>
+    <button class="btn btn-success" onClick="allowCookies()">I accept cookies</button>
+    <button class="btn btn-danger" onClick="refuseCookies()">I refuse cookies</butto>
+  </div>
 </body>
 
 <script>
-  $('.clockpicker').clockpicker();
+  $(".clockpicker").clockpicker();
 
-  $('#startTime').clockpicker({
+  $( "#startTime" ).clockpicker({
   autoclose: true,
   afterDone: function() {
   updateEndTime();
   }
+  });
+
+  $( "#collapsable" ).on("shown.bs.collapse", function () {
+  var active = $(this).attr("id");
+
+  if (Cookies.get("allowCookies")) {
+  Cookies.set("collapse", "1");
+  }
+
+  $( "#overtime").removeClass('hidden');
+  });
+
+  $( "#collapsable").on("hidden.bs.collapse", function () {
+  var active = $(this).attr("id");
+
+  if (Cookies.get("allowCookies")) {
+  Cookies.remove("collapse");
+  }
+
   });
 </script>
