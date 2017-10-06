@@ -1,3 +1,20 @@
+function firstUpdate()
+{
+    if (Cookies.get("workHours")) {
+	$("#workHours").val(Cookies.get("workHours"));
+    }
+
+    if (Cookies.get("lunchMinutes")) {
+	$("#lunchMinutes").val(Cookies.get("lunchMinutes"));
+    }
+
+    if (Cookies.get("startTime")) {
+	$("#startTime").val(Cookies.get("startTime"));
+    }
+
+    updateEndTime();
+}
+
 function updateEndTime() {
     var workHours = $("#workHours").val();
     var lunchMinutes = $("#lunchMinutes").val();
@@ -22,6 +39,11 @@ function updateEndTime() {
     minutes = (minutes<10?'0':'') + minutes;
 
     $("#endTime").val(hours + ":" + minutes);
+
+    //Cookies
+    Cookies.set('workHours', workHours);
+    Cookies.set('lunchMinutes', lunchMinutes);
+    Cookies.set('startTime', startTime);
 
     startCountDown();
 }
