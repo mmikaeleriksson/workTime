@@ -1,6 +1,8 @@
 function firstUpdate()
 {
     if (Cookies.get("allowCookies")) {
+	$( "#cookiesConfirmation" ).hide();	
+	
 	if (Cookies.get("workHours")) {
 	    $( "#workHours" ).val(Cookies.get("workHours"));
 	}
