@@ -35,7 +35,6 @@ function updateEndTime() {
     var endTime;
 
     var date = new Date(Date.now());
-
     startTime = startTime.split(":");
 
     date.setHours(startTime[0]);
@@ -83,7 +82,6 @@ function startCountDown() {
     countdownMinutes = countdownMinutes < 0 ? 0 : countdownMinutes;
 
     if (countdownMinutes > 0) {
-
 	$( "#overtime" ).addClass( "hidden" );
 	var clock = $('.clock').FlipClock((countdownMinutes * 60), {
 	    countdown: true
@@ -95,11 +93,6 @@ function startCountDown() {
 	$( "#overtime" ).removeClass( "hidden" );
 	var clock = $('.clock').FlipClock((countdownMinutes * 60), {
 	});
-    }
-
-    if (Cookies.get("allowCookies") &&
-	Cookies.get("collapse")) {
-	$( "#overtime").removeClass('hidden');
     }
 }
 
