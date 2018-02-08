@@ -66,6 +66,7 @@ function updateEndTime() {
 function startCountDown() {
     var currentDate = new Date(Date.now());
     var endTime = $( "#endTime"  ).val();
+    var lunchMinutes = $( "#lunchMinutes" ).val();
     endTime = endTime.split(":");
 
     var endDate = new Date();
@@ -78,7 +79,8 @@ function startCountDown() {
     endMinutes = ((endDate.getHours() * 60) +
 		  endDate.getMinutes());
 
-    var countdownMinutes = (endMinutes - currentMinutes);
+    var countdownMinutes = (endMinutes - currentMinutes -
+			    parseInt(lunchMinutes));
     countdownMinutes = countdownMinutes < 0 ? 0 : countdownMinutes;
 
     if (countdownMinutes > 0) {
