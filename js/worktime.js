@@ -1,3 +1,5 @@
+var gExpireTime = 30;
+
 function firstUpdate()
 {
     if (Cookies.get("allowCookies")) {
@@ -54,9 +56,9 @@ function updateEndTime() {
 
     if (Cookies.get("allowCookies")) {
 	//Cookies
-	Cookies.set('workHours', workHours);
-	Cookies.set('lunchMinutes', lunchMinutes);
-	Cookies.set('startTime', startTime);
+	Cookies.set('workHours', workHours, { expires: gExpireTime });
+	Cookies.set('lunchMinutes', lunchMinutes, { expires: gExpireTime });
+	Cookies.set('startTime', startTime, { expires: gExpireTime });
     }
 
     startCountDown();
@@ -102,7 +104,7 @@ function startCountDown() {
 function allowCookies() {
     $( "#cookiesConfirmation" ).hide();
 
-    Cookies.set("allowCookies", "1");
+    Cookies.set("allowCookies", "1", { expires: gExpireTime });
 }
 
 
