@@ -125,3 +125,19 @@ body {
     top: 19px;
     left: -21px;
 }
+
+
+#debugContainer {
+    margin: auto;
+}
+
+
+#debugCheckboxDiv {
+    float: left;
+}
+
+
+#debugTimeDiv {
+    float: left;
+    width: 260px;
+}

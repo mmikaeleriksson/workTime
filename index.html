@@ -35,7 +35,24 @@
   </div>
 
   <section class="middle">
-    <div class="input-group clockpicker">
+
+    <div class="input-group input-margin" id="debugContainer">
+      <div class="checkbox" id="debugCheckboxDiv">
+	<input type="checkbox" id="debugCheckbox"
+	       onchange="updateEndTime();">
+      </div>
+
+      <div class="input-group clockpicker input-margin" id="debugTimeDiv">
+	<input id="debugTime" type="text" class="form-control" value="08:00"
+	       onchange="updateEndTime();"
+	       onKeyDown="if(event.keyCode==13) updateEndTime();">
+	<span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+	</span>
+      </div>
+    </div>
+
+    <div class="input-group clockpicker input-margin">
       <input id="startTime" type="text" class="form-control" value="08:00"
 	     onchange="updateEndTime();"
 	     onKeyDown="if(event.keyCode==13) updateEndTime();">

@@ -68,12 +68,22 @@ function startCountDown() {
     var endTime = $( "#endTime"  ).val();
     endTime = endTime.split(":");
 
+    var debugCheckbox = document.getElementById("debugCheckbox").checked;
+    var debugTime = $( "#debugTime" ).val();
+
     var endDate = new Date();
     endDate.setHours(endTime[0]);
     endDate.setMinutes(endTime[1]);
 
-    currentMinutes = ((currentDate.getHours() * 60) +
-		      currentDate.getMinutes());
+    if (debugCheckbox) {
+	debugTime = debugTime.split(":");
+	currentMinutes = ((parseInt(debugTime[0]) * 60) +
+			  parseInt(debugTime[1]));
+    }
+    else {
+	currentMinutes = ((currentDate.getHours() * 60) +
+			  currentDate.getMinutes());
+    }
 
     endMinutes = ((endDate.getHours() * 60) +
 		  endDate.getMinutes());
