@@ -72,10 +72,19 @@
     <button
       title="Show remaining work time/overtime"
       id="collapseButton"
-      class="btn btn-info middle input-margin
-	     glyphicon glyphicon-plus-sign" data-toggle="collapse"
+      class="btn btn-info middle input-margin glyphicon
+	     glyphicon-plus-sign" data-toggle="collapse"
        data-target="#collapsable"
        >
+    </button>
+
+    <button
+      title="Lunch not eaten"
+      id="lunchButton"
+      class="btn btn-warning middle input-margin glyphicon
+	     glyphicon-ice-lolly notEaten"
+      onClick="toggleRemoveLunch()"
+      >
     </button>
   </section>
 
