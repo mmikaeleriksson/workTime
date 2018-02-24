@@ -70,6 +70,7 @@ function startCountDown() {
     var endTime = $( "#endTime"  ).val();
     var lunchMinutes = $( "#lunchMinutes" ).val();
     endTime = endTime.split(":");
+    var removeLunchMinutes = $( "#lunchButton" ).hasClass("notEaten")
 
     var debugCheckbox = document.getElementById("debugCheckbox").checked;
     var debugTime = $( "#debugTime" ).val();
@@ -91,9 +92,13 @@ function startCountDown() {
     endMinutes = ((endDate.getHours() * 60) +
 		  endDate.getMinutes());
 
-    var countdownMinutes = (endMinutes - currentMinutes -
-			    parseInt(lunchMinutes));
     countdownMinutes = countdownMinutes < 0 ? 0 : countdownMinutes;
+
+    var countdownMinutes = (endMinutes - currentMinutes);
+
+    if (removeLunchMinutes) {
+	countdownMinutes -= parseInt(lunchMinutes);
+    }
 
     if (countdownMinutes > 0) {
 	$( "#overtime" ).addClass( "hidden" );
@@ -102,10 +107,8 @@ function startCountDown() {
 	});
     }
     else {
-	countdownMinutes = (currentMinutes - endMinutes);
-
 	$( "#overtime" ).removeClass( "hidden" );
-	var clock = $('.clock').FlipClock((countdownMinutes * 60), {
+	var clock = $('.clock').FlipClock(((countdownMinutes * 60) * -1), {
 	});
     }
 }
@@ -120,4 +123,30 @@ function allowCookies() {
 
 function refuseCookies() {
     $( "#cookiesConfirmation" ).hide();
+}
+
+function toggleRemoveLunch() {
+    var lunchButton = $( "#lunchButton" );
+
+    if (lunchButton.hasClass("notEaten")) {
+	lunchButton.removeClass("glyphicon-ice-lolly");
+	lunchButton.removeClass("notEaten");
+	lunchButton.removeClass("btn-warning");
+
+	lunchButton.addClass("glyphicon-ice-lolly-tasted");
+	lunchButton.addClass("eaten");
+	lunchButton.addClass("btn-success");
+	lunchButton.prop("title", "Lunch eaten")
+    } else {
+	lunchButton.removeClass("glyphicon-ice-lolly-tasted");
+	lunchButton.removeClass("eaten");
+	lunchButton.removeClass("btn-success");
+
+	lunchButton.addClass("glyphicon-ice-lolly");
+	lunchButton.addClass("notEaten");
+	lunchButton.addClass("btn-warning");
+	lunchButton.prop("title", "Lunch not eaten")
+    }
+
+    updateEndTime();
 }
