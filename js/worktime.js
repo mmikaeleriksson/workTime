@@ -93,7 +93,7 @@ function startCountUp() {
 	countupMinutes -= parseInt(lunchMinutes);
     }
 
-    if (currentDate < startDate || countupMinutes < 0) {
+    if (currentDate < startDate) {
 	var clock = $('.clock').FlipClock((0), {
 	});
     }
