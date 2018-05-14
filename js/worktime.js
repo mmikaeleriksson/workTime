@@ -61,64 +61,45 @@ function updateEndTime() {
 	Cookies.set('startTime', startTime, { expires: gExpireTime });
     }
 
-    startCountUp();
+    startCountDown();
 }
 
 
-function startCountUp() {
+function startCountDown() {
     var currentDate = new Date(Date.now());
     var endTime = $( "#endTime"  ).val();
-    endTime = endTime.split(":");
     var lunchMinutes = $( "#lunchMinutes" ).val();
-    var lunchEaten = !($( "#lunchButton" ).hasClass("notEaten"));
-    var startTime = $( "#startTime" ).val();
-    startTime = startTime.split(":");
-
-    var debugCheckbox = document.getElementById("debugCheckbox").checked;
-    var debugTime = $( "#debugTime" ).val();
-
-    var startDate = new Date();
-    startDate.setHours(startTime[0]);
-    startDate.setMinutes(startTime[1]);
-
-    if (debugCheckbox) {
-	debugTime = debugTime.split(":");
-	currentDate.setHours(parseInt(debugTime[0]));
-	currentDate.setMinutes(parseInt(debugTime[1]));
-    }
-
-    var countupMinutes = Math.floor((currentDate - startDate)/60000);
-
-    if (lunchEaten) {
-	countupMinutes -= parseInt(lunchMinutes);
-    }
-
-    if (currentDate < startDate) {
-	var clock = $('.clock').FlipClock((0), {
-	});
-    }
-    else {
-	var clock = $('.clock').FlipClock((countupMinutes * 60), {
-	});
-    }
-
-    var clockValue = Math.floor(clock.getTime()/60);
-    currentDate = startDate;
-    currentDate.setMinutes(startDate.getMinutes() + clockValue);
-
-    if (!lunchEaten) {
-	currentDate.setMinutes(startDate.getMinutes() + parseInt(lunchMinutes));
-    }
+    endTime = endTime.split(":");
+    var removeLunchMinutes = $( "#lunchButton" ).hasClass("notEaten")
 
     var endDate = new Date();
     endDate.setHours(endTime[0]);
     endDate.setMinutes(endTime[1]);
 
-    if (currentDate > endDate) {
-	$( "#overtime" ).removeClass( "hidden" );
+    currentMinutes = ((currentDate.getHours() * 60) +
+		      currentDate.getMinutes());
+
+    endMinutes = ((endDate.getHours() * 60) +
+		  endDate.getMinutes());
+
+    countdownMinutes = countdownMinutes < 0 ? 0 : countdownMinutes;
+
+    var countdownMinutes = (endMinutes - currentMinutes);
+
+    if (removeLunchMinutes) {
+	countdownMinutes -= parseInt(lunchMinutes);
+    }
+
+    if (countdownMinutes > 0) {
+	$( "#overtime" ).addClass( "hidden" );
+	var clock = $('.clock').FlipClock((countdownMinutes * 60), {
+	    countdown: true
+	});
     }
     else {
-	$( "#overtime" ).addClass( "hidden" );
+	$( "#overtime" ).removeClass( "hidden" );
+	var clock = $('.clock').FlipClock(((countdownMinutes * 60) * -1), {
+	});
     }
 }
 
