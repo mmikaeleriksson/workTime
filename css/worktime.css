@@ -13,6 +13,7 @@
 
 .middle {
     margin: 0 auto;
+    padding: 10px;
 }
 
 section {
@@ -39,7 +40,7 @@ body {
 }
 
 .clock {
-    width: 300px;
+    width: 320px;
     padding-top: 5em;
 }
 
@@ -143,3 +144,9 @@ body {
     width: 260px;
 }
 
+.flip-clock-divider.seconds,
+.clock ul:nth-child(8),
+.clock ul:nth-child(9)
+{
+    display: none;
+}
