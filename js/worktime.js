@@ -19,7 +19,6 @@ function firstUpdate()
 	}
 
 	if (Cookies.get("collapse")) {
-	    console.log("show collapsable!");
 	    $( "#collapsable" ).collapse( "show" );
 	}
     }
@@ -74,7 +73,7 @@ function startCountUp() {
     var startTime = $( "#startTime" ).val();
     startTime = startTime.split(":");
 
-    var debugCheckbox = document.getElementById("debugCheckbox").checked;
+    var debugCheckbox = $( "#debugCheckbox" ).is(":checked");
     var debugTime = $( "#debugTime" ).val();
 
     var startDate = new Date();
@@ -100,25 +99,6 @@ function startCountUp() {
     else {
 	var clock = $('.clock').FlipClock((countupMinutes * 60), {
 	});
-    }
-
-    var clockValue = Math.floor(clock.getTime()/60);
-    currentDate = startDate;
-    currentDate.setMinutes(startDate.getMinutes() + clockValue);
-
-    if (!lunchEaten) {
-	currentDate.setMinutes(startDate.getMinutes() + parseInt(lunchMinutes));
-    }
-
-    var endDate = new Date();
-    endDate.setHours(endTime[0]);
-    endDate.setMinutes(endTime[1]);
-
-    if (currentDate > endDate) {
-	$( "#overtime" ).removeClass( "hidden" );
-    }
-    else {
-	$( "#overtime" ).addClass( "hidden" );
     }
 
     var clockValue = Math.floor(clock.getTime()/60);
