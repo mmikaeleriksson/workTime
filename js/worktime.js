@@ -3,29 +3,42 @@ var gExpireTime = 30;
 function firstUpdate()
 {
     if (Cookies.get("allowCookies")) {
-	$( "#cookiesConfirmation" ).hide();
-	
-	if (Cookies.get("workHours")) {
-	    $( "#workHours" ).val(Cookies.get("workHours"));
-	}
-
-	if (Cookies.get("lunchMinutes")) {
-	    $( "#lunchMinutes" ).val(Cookies.get("lunchMinutes"));
-	}
-
-	if (Cookies.get("startTime")) {
-	    var startTime = Cookies.get("startTime").match(/(\d{2})/g);;
-	    $( "#startTime" ).val(startTime[0] + ":" + startTime[1]);
-	}
-
-	if (Cookies.get("collapse")) {
-	    console.log("show collapsable!");
-	    $( "#collapsable" ).collapse( "show" );
-	}
+	Cookies.remove("allowCookies");
     }
-    else {
-	$( "#cookiesConfirmation" ).removeClass("hidden");
+
+    if (Cookies.get("workHours")) {
+	$( "#workHours" ).val(Cookies.get("workHours"));
     }
+
+    if (Cookies.get("lunchMinutes")) {
+	$( "#lunchMinutes" ).val(Cookies.get("lunchMinutes"));
+    }
+
+    if (Cookies.get("startTime")) {
+	var startTime = Cookies.get("startTime").match(/(\d{2})/g);;
+	$( "#startTime" ).val(startTime[0] + ":" + startTime[1]);
+    }
+
+    if (Cookies.get("collapse")) {
+	$( "#collapsable" ).collapse( "show" );
+    }
+
+    $( "#startTime" ).clockpicker({
+	autoclose: true,
+	afterDone: function() {
+	    updateEndTime();
+	}
+    });
+
+    $( "#collapsable" ).on("shown.bs.collapse", function () {
+	var active = $(this).attr("id");
+	Cookies.set("collapse", "1");
+    });
+
+    $( "#collapsable").on("hidden.bs.collapse", function () {
+	var active = $(this).attr("id");
+	Cookies.remove("collapse");
+    });
 
     updateEndTime();
 }
@@ -54,12 +67,10 @@ function updateEndTime() {
 
     $("#endTime").val(hours + ":" + minutes);
 
-    if (Cookies.get("allowCookies")) {
-	//Cookies
-	Cookies.set('workHours', workHours, { expires: gExpireTime });
-	Cookies.set('lunchMinutes', lunchMinutes, { expires: gExpireTime });
-	Cookies.set('startTime', startTime, { expires: gExpireTime });
-    }
+    //Cookies
+    Cookies.set('workHours', workHours, { expires: gExpireTime });
+    Cookies.set('lunchMinutes', lunchMinutes, { expires: gExpireTime });
+    Cookies.set('startTime', startTime, { expires: gExpireTime });
 
     startCountUp();
 }
@@ -113,17 +124,6 @@ function startCountUp() {
     }
 }
 
-
-function allowCookies() {
-    $( "#cookiesConfirmation" ).hide();
-
-    Cookies.set("allowCookies", "1", { expires: gExpireTime });
-}
-
-
-function refuseCookies() {
-    $( "#cookiesConfirmation" ).hide();
-}
 
 function toggleRemoveLunch() {
     var lunchButton = $( "#lunchButton" );
