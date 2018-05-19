@@ -112,43 +112,4 @@
     </div>
   </div>
 
-  <div id="cookiesConfirmation" class="middle hidden">
-    <button
-       id="closeCookieButton"
-       class="btn btn-default glyphicon glyphicon-remove-circle"
-       onClick="refuseCookies()"
-       >
-    </button>
-    <span>This page uses cookies to remember user changes.</span> </br></br>
-    <button class="btn btn-success" onClick="allowCookies()">I accept cookies</button>
-    <button class="btn btn-danger" onClick="refuseCookies()">I refuse cookies</butto>
-  </div>
 </body>
-
-<script>
-  $(".clockpicker").clockpicker();
-
-  $( "#startTime" ).clockpicker({
-  autoclose: true,
-  afterDone: function() {
-  updateEndTime();
-  }
-  });
-
-  $( "#collapsable" ).on("shown.bs.collapse", function () {
-  var active = $(this).attr("id");
-
-  if (Cookies.get("allowCookies")) {
-  Cookies.set("collapse", "1");
-  }
-  });
-
-  $( "#collapsable").on("hidden.bs.collapse", function () {
-  var active = $(this).attr("id");
-
-  if (Cookies.get("allowCookies")) {
-  Cookies.remove("collapse");
-  }
-
-  });
-</script>
