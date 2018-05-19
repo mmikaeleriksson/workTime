@@ -30,6 +30,13 @@ function firstUpdate()
 	}
     });
 
+    $( "#debugTime" ).clockpicker({
+	autoclose: true,
+	afterDone: function() {
+	    updateEndTime();
+	}
+    });
+
     $( "#collapsable" ).on("shown.bs.collapse", function () {
 	var active = $(this).attr("id");
 	Cookies.set("collapse", "1");
