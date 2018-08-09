@@ -75,6 +75,15 @@
     </button>
 
     <button
+      title="Show coming bus"
+      id="busButton"
+      class="btn btn-success middle input-margin glyphicon
+	     glyphicon-bed" data-toggle="collapse"
+      data-target="#bus"
+      >
+    </button>
+
+    <button
       title="Lunch not eaten"
       id="lunchButton"
       class="btn btn-warning middle input-margin glyphicon
@@ -82,6 +91,7 @@
       onClick="toggleRemoveLunch()"
       >
     </button>
+
   </section>
 
   <div id="collapsable" class="middle collapse">
@@ -89,6 +99,14 @@
 
     <div id="overtime" class="middle hidden">
       <span>Overtime</span>
+    </div>
+  </div>
+
+  <div id="bus" class="middle collapse">
+    <div id="busDiv" class="middle">
+      <iframe class="busIframe"
+	      src="https://avgangar.ostgotatrafiken.se/kungsgatan-link%C3%B6ping?lines=3-linkoping&stopPoint=a">
+      </iframe>
     </div>
   </div>
 

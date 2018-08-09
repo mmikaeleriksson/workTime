@@ -102,3 +102,18 @@ body {
 {
     display: none;
 }
+
+#bus {
+    padding-top: 5em;
+}
+
+#busDiv {
+    margin: auto;
+    width: 320px;
+}
+
+
+.busIframe {
+    height: 500px;
+    border: none;
+}

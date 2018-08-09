@@ -40,6 +40,16 @@ function firstUpdate()
 	Cookies.remove("collapse");
     });
 
+    $( "#bus" ).on("shown.bs.collapse", function () {
+	var active = $(this).attr("id");
+	Cookies.set("collapse", "1");
+    });
+
+    $( "#bus").on("hidden.bs.collapse", function () {
+	var active = $(this).attr("id");
+	Cookies.remove("collapse");
+    });
+
     updateEndTime();
 }
 
