@@ -27,7 +27,7 @@
     <span class="workTimeText">WorkTime</span>
   </div>
 
-  <section class="middle">
+  <section class="middle container-rect">
     <div class="input-group clockpicker">
       <input id="startTime" type="text" class="form-control" value="08:00"
 	     onchange="updateEndTime();"
@@ -102,10 +102,16 @@
     </div>
   </div>
 
-  <div id="bus" class="middle collapse">
+  <div id="bus" class="middle collapse container-rect">
     <div id="busDiv" class="middle">
-      <iframe class="busIframe"
-	      src="https://avgangar.ostgotatrafiken.se/kungsgatan-link%C3%B6ping?lines=3-linkoping&stopPoint=a">
+      <div id="busInput" class="input-group">
+	<span class="input-group-addon">Url</span>
+	<input id="busUrl" class="form-control"
+	       onKeyDown="if(event.keyCode==13) loadBusIframe();">
+	       </input>
+      </div>
+      <iframe id="busIframe"
+	      src="">
       </iframe>
     </div>
   </div>

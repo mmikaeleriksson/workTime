@@ -23,6 +23,14 @@ function firstUpdate()
 	$( "#collapsable" ).collapse( "show" );
     }
 
+    if (Cookies.get("bus")) {
+	$( "#bus" ).collapse( "show" );
+    }
+
+    if (Cookies.get("busUrl")) {
+	$( "#busUrl" ).val(Cookies.get("busUrl"));
+    }
+
     $( "#startTime" ).clockpicker({
 	autoclose: true,
 	afterDone: function() {
@@ -42,12 +50,12 @@ function firstUpdate()
 
     $( "#bus" ).on("shown.bs.collapse", function () {
 	var active = $(this).attr("id");
-	Cookies.set("collapse", "1");
+	Cookies.set("bus", "1");
     });
 
     $( "#bus").on("hidden.bs.collapse", function () {
 	var active = $(this).attr("id");
-	Cookies.remove("collapse");
+	Cookies.remove("bus");
     });
 
     updateEndTime();
@@ -159,4 +167,11 @@ function toggleRemoveLunch() {
     }
 
     updateEndTime();
+}
+
+
+function loadBusIframe() {
+    var url = $( "#busUrl" ).val();
+    $( "#busIframe" ).attr('src',url);
+    Cookies.set("busUrl", url);
 }

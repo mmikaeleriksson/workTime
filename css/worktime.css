@@ -16,7 +16,7 @@
     padding: 10px;
 }
 
-section {
+.container-rect {
     width: 300px;
     border-radius: 8px;
     background: rgb(255,255,255);
@@ -104,16 +104,20 @@ body {
 }
 
 #bus {
-    padding-top: 5em;
+    margin-top: 5em;
+    width: 345px;
 }
 
 #busDiv {
     margin: auto;
-    width: 320px;
+}
+
+#busInput {
+    margin-bottom: 0.5em;
 }
 
 
-.busIframe {
+#busIframe {
     height: 500px;
     border: none;
 }
