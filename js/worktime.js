@@ -29,6 +29,7 @@ function firstUpdate()
 
     if (Cookies.get("busUrl")) {
 	$( "#busUrl" ).val(Cookies.get("busUrl"));
+	loadBusIframe();
     }
 
     $( "#startTime" ).clockpicker({
