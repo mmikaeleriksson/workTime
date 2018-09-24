@@ -1,4 +1,4 @@
-var gExpireTime = 30;
+var gExpireTime = 365;
 
 function firstUpdate()
 {
@@ -51,7 +51,7 @@ function firstUpdate()
 
     $( "#bus" ).on("shown.bs.collapse", function () {
 	var active = $(this).attr("id");
-	Cookies.set("bus", "1");
+	Cookies.set("bus", "1", {expires: gExpireTime});
     });
 
     $( "#bus").on("hidden.bs.collapse", function () {
