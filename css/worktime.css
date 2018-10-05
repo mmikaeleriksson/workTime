@@ -13,9 +13,14 @@
 
 .middle {
     margin: 0 auto;
+    padding: 10px;
 }
 
-section {
+#workTimeSection {
+    margin-bottom: 5em;
+}
+
+.container-rect {
     width: 300px;
     border-radius: 8px;
     background: rgb(255,255,255);
@@ -39,8 +44,7 @@ body {
 }
 
 .clock {
-    width: 300px;
-    padding-top: 5em;
+    width: 320px;
 }
 
 .header {
@@ -143,3 +147,27 @@ body {
     width: 260px;
 }
 
+.flip-clock-divider.seconds,
+.clock ul:nth-child(8),
+.clock ul:nth-child(9)
+{
+    display: none;
+}
+
+#bus {
+    width: 345px;
+}
+
+#busDiv {
+    margin: auto;
+}
+
+#busInput {
+    margin-bottom: 0.5em;
+}
+
+
+#busIframe {
+    height: 500px;
+    border: none;
+}

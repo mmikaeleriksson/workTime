@@ -1,20 +1,16 @@
 <head>
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="js/highlight.min.js"></script>
-  <script type="text/javascript" src="js/html5shiv.js"></script>
-  <script type="text/javascript" src="js/respond.min.js"></script>
-  <script type="text/javascript" src="js/clockpicker.js"></script>
-  <script type="text/javascript" src="js/jquery-clockpicker.js"></script>
-  <script type="text/javascript" src="js/flipclock.js"></script>
-  <script type="text/javascript" src="js/cookie.js"></script>
-  
-  <link rel="stylesheet" type="text/css" href="css/standalone.css">
-  <link rel="stylesheet" type="text/css" href="css/clockpicker.css">
-  <link rel="stylesheet" type="text/css" href="css/jquery-clockpicker.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-  <link rel="stylesheet" type="text/css" href="css/flipclock.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="clockpicker/dist/jquery-clockpicker.js"></script>
+  <script type="text/javascript" src="FlipClock/compiled/flipclock.js"></script>
+  <script type="text/javascript" src="js-cookie/src/js.cookie.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="clockpicker/src/standalone.css">
+  <link rel="stylesheet" type="text/css" href="clockpicker/dist/jquery-clockpicker.min.css">
+  <link rel="stylesheet" type="text/css" href="FlipClock/compiled/flipclock.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <!-- Worktime -->
   <script type="text/javascript" src="js/worktime.js"></script>
@@ -34,7 +30,7 @@
     <span class="workTimeText">WorkTime</span>
   </div>
 
-  <section class="middle">
+  <section id="workTimeSection" class="middle container-rect">
 
     <div class="input-group input-margin" id="debugContainer">
       <div class="checkbox" id="debugCheckboxDiv">
@@ -52,7 +48,7 @@
       </div>
     </div>
 
-    <div class="input-group clockpicker input-margin">
+    <div class="input-group clockpicker">
       <input id="startTime" type="text" class="form-control" value="08:00"
 	     onchange="updateEndTime();"
 	     onKeyDown="if(event.keyCode==13) updateEndTime();">
@@ -99,6 +95,15 @@
     </button>
 
     <button
+      title="Show coming bus"
+      id="busButton"
+      class="btn btn-success middle input-margin glyphicon
+	     glyphicon-bed" data-toggle="collapse"
+      data-target="#bus"
+      >
+    </button>
+
+    <button
       title="Lunch not eaten"
       id="lunchButton"
       class="btn btn-warning middle input-margin glyphicon
@@ -106,6 +111,7 @@
       onClick="toggleRemoveLunch()"
       >
     </button>
+
   </section>
 
   <div id="collapsable" class="middle collapse">
@@ -116,43 +122,18 @@
     </div>
   </div>
 
-  <div id="cookiesConfirmation" class="middle hidden">
-    <button
-       id="closeCookieButton"
-       class="btn btn-default glyphicon glyphicon-remove-circle"
-       onClick="refuseCookies()"
-       >
-    </button>
-    <span>This page uses cookies to remember user changes.</span> </br></br>
-    <button class="btn btn-success" onClick="allowCookies()">I accept cookies</button>
-    <button class="btn btn-danger" onClick="refuseCookies()">I refuse cookies</butto>
+  <div id="bus" class="middle collapse container-rect">
+    <div id="busDiv" class="middle">
+      <div id="busInput" class="input-group">
+	<span class="input-group-addon">Url</span>
+	<input id="busUrl" class="form-control"
+	       onKeyDown="if(event.keyCode==13) loadBusIframe();">
+	       </input>
+      </div>
+      <iframe id="busIframe"
+	      src="">
+      </iframe>
+    </div>
   </div>
+
 </body>
-
-<script>
-  $(".clockpicker").clockpicker();
-
-  $( "#startTime" ).clockpicker({
-  autoclose: true,
-  afterDone: function() {
-  updateEndTime();
-  }
-  });
-
-  $( "#collapsable" ).on("shown.bs.collapse", function () {
-  var active = $(this).attr("id");
-
-  if (Cookies.get("allowCookies")) {
-  Cookies.set("collapse", "1");
-  }
-  });
-
-  $( "#collapsable").on("hidden.bs.collapse", function () {
-  var active = $(this).attr("id");
-
-  if (Cookies.get("allowCookies")) {
-  Cookies.remove("collapse");
-  }
-
-  });
-</script>
