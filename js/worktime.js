@@ -32,7 +32,7 @@ function firstUpdate()
 	loadBusIframe();
     }
 
-    $( "#startTime" ).clockpicker({
+    $( ".clockpicker input" ).clockpicker({
 	autoclose: true,
 	afterDone: function() {
 	    updateEndTime();
