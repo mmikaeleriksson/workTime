@@ -4,6 +4,13 @@ A simple web application that helps you **count your time** that you are **spend
 # You can check it out at
 [worktime.holyberit.tf](http://worktime.holyberit.tf) and [beta.worktime.holyberit.tf](http://beta.worktime.holyberit.tf)
 
+# Install instructions
+* Download/Clone repository
+  * git clone <repository url>
+* Initialize and update git submodules
+  * git submodule init
+  * git submodule update
+
 # Created by
 ## Mikael Eriksson
  - [**GitHub** - mmikaeleriksson](https://github.com/mmikaeleriksson)
