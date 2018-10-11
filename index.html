@@ -30,7 +30,6 @@
   <section id="workTimeSection" class="middle container-rect">
     <div class="input-group clockpicker">
       <input id="startTime" type="text" class="form-control" value="08:00"
-	     onchange="updateEndTime();"
 	     onKeyDown="if(event.keyCode==13) updateEndTime();">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-time"></span>
@@ -42,7 +41,6 @@
       <input id="workHours" type="text" class="form-control"
 	     value="8" onkeypress='return event.charCode >= 48 &&
       event.charCode <= 57'
-			onchange="updateEndTime();"
 			onKeyDown="if(event.keyCode==13) updateEndTime();">
 	<span class="input-group-addon">h</span>
     </div>
@@ -52,7 +50,6 @@
       <input id="lunchMinutes" type="text" class="form-control"
 	     value="30" onkeypress='return event.charCode >= 48 &&
       event.charCode <= 57'
-			onchange="updateEndTime();"
 			onKeyDown="if(event.keyCode==13) updateEndTime();">
 	<span class="input-group-addon">min</span>
     </div>
