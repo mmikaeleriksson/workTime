@@ -15,7 +15,7 @@ function firstUpdate()
     }
 
     if (Cookies.get("startTime")) {
-	var startTime = Cookies.get("startTime").match(/(\d{2})/g);;
+	const startTime = Cookies.get("startTime").match(/(\d{2})/g);;
 	$( "#startTime" ).val(startTime[0] + ":" + startTime[1]);
     }
 
@@ -40,22 +40,18 @@ function firstUpdate()
     });
 
     $( "#collapsable" ).on("shown.bs.collapse", function () {
-	var active = $(this).attr("id");
 	Cookies.set("collapse", "1");
     });
 
     $( "#collapsable").on("hidden.bs.collapse", function () {
-	var active = $(this).attr("id");
 	Cookies.remove("collapse");
     });
 
     $( "#bus" ).on("shown.bs.collapse", function () {
-	var active = $(this).attr("id");
 	Cookies.set("bus", "1", {expires: gExpireTime});
     });
 
     $( "#bus").on("hidden.bs.collapse", function () {
-	var active = $(this).attr("id");
 	Cookies.remove("bus");
     });
 
@@ -67,23 +63,22 @@ function firstUpdate()
 }
 
 function updateEndTime() {
-    var workHours = $( "#workHours" ).val();
-    var lunchMinutes = $( "#lunchMinutes" ).val();
-    var startTime = $( "#startTime" ).val();
-    var endTime;
+    const workHours = $( "#workHours" ).val();
+    const lunchMinutes = $( "#lunchMinutes" ).val();
+    let startTime = $( "#startTime" ).val();
 
-    var date = new Date(Date.now());
+    let date = new Date(Date.now());
     startTime = startTime.split(":");
 
     date.setHours(startTime[0]);
     date.setMinutes(startTime[1]);
 
-    var calcMin = (date.getMinutes() + parseInt(lunchMinutes) +
+    const calcMin = (date.getMinutes() + parseInt(lunchMinutes) +
 		   (parseInt(workHours) * 60));
     date.setMinutes(calcMin);
 
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
 
     hours = (hours<10?'0':'') + hours;
     minutes = (minutes<10?'0':'') + minutes;
@@ -100,46 +95,33 @@ function updateEndTime() {
 
 
 function startCountUp() {
-    var currentDate = new Date(Date.now());
-    var endTime = $( "#endTime"  ).val();
-    endTime = endTime.split(":");
-    var lunchMinutes = $( "#lunchMinutes" ).val();
-    var lunchEaten = !($( "#lunchButton" ).hasClass("notEaten"));
-    var startTime = $( "#startTime" ).val();
+    let currentDate = new Date(Date.now());
+    const lunchMinutes = $( "#lunchMinutes" ).val();
+    const lunchEaten = !($( "#lunchButton" ).hasClass("notEaten"));
+    let startTime = $( "#startTime" ).val();
     startTime = startTime.split(":");
 
-    var startDate = new Date();
+    let startDate = new Date();
     startDate.setHours(startTime[0]);
     startDate.setMinutes(startTime[1]);
 
-    var countupMinutes = Math.floor((currentDate - startDate)/60000);
+    let countupMinutes = Math.floor((currentDate - startDate)/60000);
 
     if (lunchEaten) {
 	countupMinutes -= parseInt(lunchMinutes);
     }
 
     if (currentDate < startDate || countupMinutes < 0) {
-	var clock = $('.clock').FlipClock((0), {
-	});
+	$('.clock').FlipClock((0), {});
     }
     else {
-	var clock = $('.clock').FlipClock((countupMinutes * 60), {
-	});
+	$('.clock').FlipClock((countupMinutes * 60), {});
     }
 
-    var clockValue = Math.floor(clock.getTime()/60);
-    currentDate = startDate;
-    currentDate.setMinutes(startDate.getMinutes() + clockValue);
+    const workHours = $( "#workHours" ).val();
+    let workMinutes = (workHours * 60);
 
-    if (!lunchEaten) {
-	currentDate.setMinutes(startDate.getMinutes() + parseInt(lunchMinutes));
-    }
-
-    var endDate = new Date();
-    endDate.setHours(endTime[0]);
-    endDate.setMinutes(endTime[1]);
-
-    if (currentDate > endDate) {
+    if (countupMinutes > workMinutes) {
 	$( "#overtime" ).removeClass( "hidden" );
     }
     else {
@@ -149,7 +131,7 @@ function startCountUp() {
 
 
 function toggleRemoveLunch() {
-    var lunchButton = $( "#lunchButton" );
+    let lunchButton = $( "#lunchButton" );
 
     if (lunchButton.hasClass("notEaten")) {
 	lunchButton.removeClass("glyphicon-ice-lolly");
@@ -176,7 +158,7 @@ function toggleRemoveLunch() {
 
 
 function loadBusIframe() {
-    var url = $( "#busUrl" ).val();
+    const url = $( "#busUrl" ).val();
     $( "#busIframe" ).attr('src',url);
-    Cookies.set("busUrl", url);
+    Cookies.set("busUrl", url, {expires: gExpireTime});
 }
