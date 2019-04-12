@@ -138,7 +138,8 @@ function toggleRemoveLunch() {
     let lunchButton = $( "#lunchButton" );
 
     if (lunchButton.hasClass("notEaten")) {
-	Cookies.remove("lunchButton");
+	let halfADay = 0.5;
+	Cookies.set("lunchButton", "1", {expires: halfADay});
 
 	//CSS
 	lunchButton.removeClass("glyphicon-ice-lolly");
@@ -151,9 +152,7 @@ function toggleRemoveLunch() {
 	lunchButton.prop("title", "Lunch eaten")
     }
     else {
-	let halfADay = 0.5;
-	Cookies.set("lunchButton", "1", {expires: halfADay});
-
+	Cookies.remove("lunchButton");
 
 	//CSS
 	lunchButton.removeClass("glyphicon-ice-lolly-tasted");
