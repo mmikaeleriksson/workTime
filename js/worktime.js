@@ -59,6 +59,10 @@ function firstUpdate()
     $( "#lunchMinutes" ).on("input", updateEndTime);
     $( "#startTime" ).on("input", updateEndTime);
 
+    if (Cookies.get("lunchButton")) {
+	toggleRemoveLunch();
+    }
+
     updateEndTime();
 }
 
@@ -134,6 +138,9 @@ function toggleRemoveLunch() {
     let lunchButton = $( "#lunchButton" );
 
     if (lunchButton.hasClass("notEaten")) {
+	Cookies.remove("lunchButton");
+
+	//CSS
 	lunchButton.removeClass("glyphicon-ice-lolly");
 	lunchButton.removeClass("notEaten");
 	lunchButton.removeClass("btn-warning");
@@ -142,7 +149,13 @@ function toggleRemoveLunch() {
 	lunchButton.addClass("eaten");
 	lunchButton.addClass("btn-success");
 	lunchButton.prop("title", "Lunch eaten")
-    } else {
+    }
+    else {
+	let halfADay = 0.5;
+	Cookies.set("lunchButton", "1", {expires: halfADay});
+
+
+	//CSS
 	lunchButton.removeClass("glyphicon-ice-lolly-tasted");
 	lunchButton.removeClass("eaten");
 	lunchButton.removeClass("btn-success");
