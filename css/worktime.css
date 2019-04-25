@@ -48,20 +48,21 @@ body {
 }
 
 .header {
-    width: 565px;
-    padding-top: 2em;
     padding-bottom: 4em;
+    padding-top: 2em;
+    text-align: center;
 }
+
 
 .workTimeText {
     font-family:'Lobster',cursive;
-    font-size: 100pt;
+    font-size: 60pt;
     background-color: #068eb7;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+    text-shadow: rgba(255,255,255,1) -3px -2px 0px;
 }
 
 #overtime {
