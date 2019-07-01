@@ -11,9 +11,12 @@ A simple web application that helps you **count your time** that you are **spend
   * git submodule init
   * git submodule update
 
-# Created by
-## Mikael Eriksson
- - [**GitHub** - mmikaeleriksson](https://github.com/mmikaeleriksson)
- - [**Site** - mikaeleriksson.dev](http://mikaeleriksson.dev)
-
-### Description by [HQAPPZ](https://github.com/hqappz)
+# Credits
+## Libraries
+- [**Glyphicons**](https://www.glyphicons.com/)
+## Contributors
+- [**hqappz**](https://github.com/hqappz)
+- [**MaLarsson**](https://github.com/MaLarsson)
+- [**giacomomagini**](https://github.com/giacomomagini)
+- [**mmacq**](https://github.com/mmacq)
+- [**mmikaeleriksson**](https://github.com/mmikaeleriksson)
