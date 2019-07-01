@@ -16,9 +16,6 @@
     padding: 10px;
 }
 
-#workTimeSection {
-    margin-bottom: 5em;
-}
 
 .container-rect {
     width: 300px;
@@ -63,6 +60,11 @@ body {
     background-clip: text;
     color: transparent;
     text-shadow: rgba(255,255,255,1) -3px -2px 0px;
+}
+
+
+.expandableContainer {
+    margin-top: 2.5em;
 }
 
 #overtime {
