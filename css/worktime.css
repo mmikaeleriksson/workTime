@@ -38,6 +38,7 @@ body {
     background: -webkit-linear-gradient(-45deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%);
     background: linear-gradient(135deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ceaed', endColorstr='#63aeff',GradientType=1 );
+    height: 100%;
 }
 
 .clock {
