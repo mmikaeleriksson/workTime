@@ -66,26 +66,71 @@ function firstUpdate()
     updateEndTime();
 }
 
+/*
+A utility function which checks String is Empty or not 
+return-value(s) : 
+    True if string is empty
+    False for non-empty string
+*/
+function isEmpty(str)
+{
+    if(str === "")
+        return true;
+    return false;
+}
+
 function updateEndTime() {
-    const workHours = $( "#workHours" ).val();
-    const lunchMinutes = $( "#lunchMinutes" ).val();
-    let startTime = $( "#startTime" ).val();
+	
+    const ZeroTime = "00:00";
+    
+    let workHours = $("#workHours").val();
+    let lunchMinutes = $("#lunchMinutes").val();
+    let startTime = $("#startTime").val();
 
-    let date = new Date(Date.now());
-    startTime = startTime.split(":");
+    // removing all white spaces from input
+    workHours = workHours.trim();
+    lunchMinutes = lunchMinutes.trim();
+    startTime = startTime.trim();
 
-    date.setHours(startTime[0]);
-    date.setMinutes(startTime[1]);
+    let hours = 0;
+    let minutes = 0;
 
-    const calcMin = (date.getMinutes() + parseInt(lunchMinutes) +
-		   (parseInt(workHours) * 60));
-    date.setMinutes(calcMin);
+    // if either of input text box is empty
+    // then reseting the respective input field 
+    if (isEmpty(lunchMinutes) || isEmpty(workHours) || isEmpty(startTime)) {
+	
+	//padding values 
+        hours = '0' + hours;
+        minutes = '0' + minutes;
 
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+        if (isEmpty(lunchMinutes)) {
+            lunchMinutes = 0;
+        }
+        if (isEmpty(workHours)) {
+            workHours = 0;
+        }
+        if (isEmpty(startTime)) {
+            startTime = ZeroTime;
+        }
+    }
+    else {
 
-    hours = (hours<10?'0':'') + hours;
-    minutes = (minutes<10?'0':'') + minutes;
+        let date = new Date(Date.now());
+        startTime = startTime.split(":");
+
+        date.setHours(startTime[0]);
+        date.setMinutes(startTime[1]);
+
+        const calcMin = (date.getMinutes() + parseInt(lunchMinutes) +
+            (parseInt(workHours) * 60));
+        date.setMinutes(calcMin);
+
+        hours = date.getHours();
+        minutes = date.getMinutes();
+
+        hours = (hours < 10 ? '0' : '') + hours;
+        minutes = (minutes < 10 ? '0' : '') + minutes;
+    }
 
     $("#endTime").val(hours + ":" + minutes);
 
