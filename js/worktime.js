@@ -99,7 +99,7 @@ function updateEndTime() {
     // then reseting the respective input field 
     if (isEmpty(lunchMinutes) || isEmpty(workHours) || isEmpty(startTime)) {
 	
-	//padding values 
+	//padding 0 values 
         hours = '0' + hours;
         minutes = '0' + minutes;
 
