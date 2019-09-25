@@ -14,6 +14,12 @@ A simple web application that helps you **count your time** that you are **spend
 # Credits
 ## Libraries
 - [**Glyphicons**](https://www.glyphicons.com/)
+
+## Submodules
+- [**FlipClock**](https://github.com/objectivehtml/FlipClock/)
+- [**clockpicker**](https://github.com/weareoutman/clockpicker/)
+- [**js-cookie**](https://github.com/js-cookie/js-cookie/)
+
 ## Contributors
 - [**hqappz**](https://github.com/hqappz)
 - [**MaLarsson**](https://github.com/MaLarsson)
