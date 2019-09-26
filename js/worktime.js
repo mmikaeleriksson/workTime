@@ -1,4 +1,7 @@
 var gExpireTime = 365;
+function getSafeValue(id,safeVal=0){
+	return $(id).val()||safeVal;
+}
 
 function firstUpdate()
 {
@@ -67,9 +70,9 @@ function firstUpdate()
 }
 
 function updateEndTime() {
-    const workHours = $( "#workHours" ).val();
-    const lunchMinutes = $( "#lunchMinutes" ).val();
-    let startTime = $( "#startTime" ).val();
+    const workHours = getSafeValue("#workHours" );
+    const lunchMinutes = getSafeValue( "#lunchMinutes" );
+    let startTime = getSafeValue( "#startTime" );
 
     let date = new Date(Date.now());
     startTime = startTime.split(":");
