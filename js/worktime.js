@@ -106,7 +106,8 @@ function updateEndTime() {
 }
 
 
-function startCountUp() {
+function startCountUp()
+{
     let currentDate = new Date(Date.now());
     const lunchMinutes = $( "#lunchMinutes" ).val();
     const lunchEaten = !($( "#lunchButton" ).hasClass("notEaten"));
@@ -142,7 +143,8 @@ function startCountUp() {
 }
 
 
-function toggleRemoveLunch() {
+function toggleRemoveLunch()
+{
     let lunchButton = $( "#lunchButton" );
 
     if (lunchButton.hasClass("notEaten")) {
@@ -177,7 +179,8 @@ function toggleRemoveLunch() {
 }
 
 
-function loadBusIframe() {
+function loadBusIframe()
+{
     const url = $( "#busUrl" ).val();
     $( "#busIframe" ).attr('src',url);
     Cookies.set("busUrl", url, {expires: gExpireTime});
