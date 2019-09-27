@@ -1,6 +1,15 @@
 var gExpireTime = 365;
 
-function firstUpdate() {
+
+function getSafeValue(id, safeVal=0)
+{
+    return $(id).val() || safeVal;
+}
+
+
+function firstUpdate()
+{
+
     if (Cookies.get("allowCookies")) {
         Cookies.remove("allowCookies");
     }
@@ -65,10 +74,12 @@ function firstUpdate() {
     updateEndTime();
 }
 
+
 function updateEndTime() {
-    const workHours = $("#workHours").val() | 0;
-    const lunchMinutes = $("#lunchMinutes").val() | 0;
-    let startTime = $("#startTime").val() | '00:00';
+    const workHours = getSafeValue( "#workHours", );
+    const lunchMinutes = getSafeValue( "#lunchMinutes" );
+    let startTime = getSafeValue( "#startTime", "00:00" );
+
 
     let date = new Date(Date.now());
     startTime = startTime.split(":");
@@ -97,7 +108,8 @@ function updateEndTime() {
 }
 
 
-function startCountUp() {
+function startCountUp()
+{
     let currentDate = new Date(Date.now());
     const lunchMinutes = $("#lunchMinutes").val();
     const lunchEaten = !($("#lunchButton").hasClass("notEaten"));
@@ -133,8 +145,9 @@ function startCountUp() {
 }
 
 
-function toggleRemoveLunch() {
-    let lunchButton = $("#lunchButton");
+function toggleRemoveLunch()
+{
+    let lunchButton = $( "#lunchButton" );
 
     if (lunchButton.hasClass("notEaten")) {
         let halfADay = 0.5;
@@ -168,8 +181,9 @@ function toggleRemoveLunch() {
 }
 
 
-function loadBusIframe() {
-    const url = $("#busUrl").val();
-    $("#busIframe").attr('src', url);
-    Cookies.set("busUrl", url, { expires: gExpireTime });
+function loadBusIframe()
+{
+    const url = $( "#busUrl" ).val();
+    $( "#busIframe" ).attr('src',url);
+    Cookies.set("busUrl", url, {expires: gExpireTime});
 }
