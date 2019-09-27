@@ -8,14 +8,18 @@
   <link rel="stylesheet" type="text/css" href="clockpicker/dist/jquery-clockpicker.min.css">
   <link rel="stylesheet" type="text/css" href="FlipClock/compiled/flipclock.css">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
 
   <!-- Worktime -->
   <script type="text/javascript" src="js/worktime.js"></script>
   <link rel="stylesheet" type="text/css" href="css/worktime.css">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
@@ -24,70 +28,57 @@
 </head>
 
 <body onload="firstUpdate();">
-    <div class="header">
-	<span class="workTimeText">WorkTime</span>
-    </div>
+  <div class="header">
+    <span class="workTimeText">WorkTime</span>
+  </div>
 
   <section id="workTimeSection" class="middle container-rect">
+
     <div class="input-group clockpicker">
+      <span class="input-group-addon">Start work at </span>
       <input id="startTime" type="text" class="form-control" value="08:00"
-	     onKeyDown="if(event.keyCode==13) updateEndTime();">
+        onKeyDown="if(event.keyCode==13) updateEndTime();">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-time"></span>
       </span>
     </div>
 
     <div class="input-group input-margin">
-      <span class="input-group-addon">Work</span>
-      <input id="workHours" type="text" class="form-control"
-	     value="8" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'
-			onKeyDown="if(event.keyCode==13) updateEndTime();">
-	<span class="input-group-addon">h</span>
+      <span class="input-group-addon">Work hours count</span>
+      <input id="workHours" type="text" class="form-control" value="8" onkeypress='return event.charCode >= 48 &&
+      event.charCode <= 57' onKeyDown="if(event.keyCode==13) updateEndTime();">
+      <span class="input-group-addon">h</span>
     </div>
 
     <div class="input-group input-margin">
       <span class="input-group-addon">Lunch</span>
-      <input id="lunchMinutes" type="text" class="form-control"
-	     value="30" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'
-			onKeyDown="if(event.keyCode==13) updateEndTime();">
-	<span class="input-group-addon">min</span>
+      <input id="lunchMinutes" type="text" class="form-control" value="30" onkeypress='return event.charCode >= 48 &&
+      event.charCode <= 57' onKeyDown="if(event.keyCode==13) updateEndTime();" style="width: 140px;">
+
+
+      <span class="input-group-addon">min</span>
+
+    </div>
     </div>
 
     <div class="input-group input-margin">
-      <input id="endTime" type="text" class="form-control" value="00:00"
-	     readonly>
+      <span class="input-group-addon">Leave at </span>
+      <input id="endTime" type="text" class="form-control" value="00:00" readonly>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-time"></span>
       </span>
     </div>
 
-    <button
-      title="Show work time/overtime"
-      id="collapseButton"
-      class="btn btn-info middle input-margin glyphicon
-	     glyphicon-plus-sign" data-toggle="collapse"
-       data-target="#collapsable"
-       >
+    <button title="Show work time/overtime" id="collapseButton" class="btn btn-info middle input-margin glyphicon
+	     glyphicon-plus-sign" data-toggle="collapse" data-target="#collapsable">
     </button>
 
-    <button
-      title="Show coming bus"
-      id="busButton"
-      class="btn btn-success middle input-margin glyphicon
-	     glyphicon-bed" data-toggle="collapse"
-      data-target="#bus"
-      >
+    <button title="Show coming bus" id="busButton" class="btn btn-success middle input-margin glyphicon
+	     glyphicon-bed" data-toggle="collapse" data-target="#bus">
     </button>
 
-    <button
-      title="Lunch not eaten"
-      id="lunchButton"
-      class="btn btn-warning middle input-margin glyphicon
-	     glyphicon-ice-lolly notEaten"
-      onClick="toggleRemoveLunch()"
-      >
+    <button title="Lunch not eaten" id="lunchButton" class="btn btn-warning middle input-margin glyphicon
+	     glyphicon-ice-lolly notEaten" onClick="toggleRemoveLunch()">
     </button>
 
   </section>
@@ -103,13 +94,11 @@
   <div id="bus" class="middle collapse container-rect expandableContainer">
     <div id="busDiv" class="middle">
       <div id="busInput" class="input-group">
-	<span class="input-group-addon">Url</span>
-	<input id="busUrl" class="form-control"
-	       onKeyDown="if(event.keyCode==13) loadBusIframe();">
-	       </input>
+        <span class="input-group-addon">Url</span>
+        <input id="busUrl" class="form-control" onKeyDown="if(event.keyCode==13) loadBusIframe();">
+        </input>
       </div>
-      <iframe id="busIframe"
-	      src="">
+      <iframe id="busIframe" src="">
       </iframe>
     </div>
   </div>
