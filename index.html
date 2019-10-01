@@ -7,11 +7,11 @@
   <link rel="stylesheet" type="text/css" href="clockpicker/src/standalone.css">
   <link rel="stylesheet" type="text/css" href="clockpicker/dist/jquery-clockpicker.min.css">
   <link rel="stylesheet" type="text/css" href="FlipClock/compiled/flipclock.css">
-
+  <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.8.10.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+  <script src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/compiled-4.8.10.min.js"></script>
   <!-- Worktime -->
   <script type="text/javascript" src="js/worktime.js"></script>
   <link rel="stylesheet" type="text/css" href="css/worktime.css">
@@ -20,11 +20,50 @@
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  .king{
+    margin-top: -32px ;
+    display : block ;
+  }
+  li {
+  border-right: 1px solid #bbb;
+  border-bottom: 60px ;
+}
+  li a{
+    display : block ;
+    width: 110px;
+  }
+  li a:hover{
+       background-color: #2E8B57; /* Dark green background on mouse-over */
+
+  }
+  </style>
   <title>WorkTime</title>
 </head>
 
 <body onload="firstUpdate();">
     <div class="header">
+      <!--Main Navigation-->
+  <div class = "king">
+  <nav class="navbar navbar-expand-lg navbar-dark default-color">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Time</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="credit.html">Credits</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!--Main Navigation-->
 	<span class="workTimeText">WorkTime</span>
     </div>
 
