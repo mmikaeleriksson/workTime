@@ -52,11 +52,18 @@ function firstUpdate()
 	loadBusIframe();
     }
 
-    $( ".clockpicker input" ).clockpicker({
+    $( ".clockpicker input startTimeClass" ).clockpicker({
 	autoclose: true,
 	afterDone: function() {
 	    updateEndTime();
 	}
+    });
+
+    $( ".clockpicker input endTimeClass" ).clockpicker({
+    autoclose: true,
+    afterDone: function() {
+        updateStartTime();
+    }
     });
 
     $( "#collapsable" ).on("shown.bs.collapse", function () {
@@ -78,6 +85,7 @@ function firstUpdate()
     $( "#workHours" ).on("input", updateEndTime);
     $( "#lunchMinutes" ).on("input", updateEndTime);
     $( "#startTime" ).on("input", updateEndTime);
+    $( "#endTime" ).on("input", updateStartTime);
 
     if (Cookies.get("lunchButton")) {
 	toggleRemoveLunch();
@@ -109,6 +117,37 @@ function updateEndTime() {
     minutes = (minutes<10?'0':'') + minutes;
 
     $("#endTime").val(hours + ":" + minutes);
+
+    //Cookies
+    Cookies.set('workHours', workHours, { expires: gExpireTime });
+    Cookies.set('lunchMinutes', lunchMinutes, { expires: gExpireTime });
+    Cookies.set('startTime', startTime, { expires: gExpireTime });
+
+    startCountUp();
+}
+
+function updateStartTime() {
+    const workHours = getSafeValue( "#workHours", );
+    const lunchMinutes = getSafeValue( "#lunchMinutes" );
+    let endTime = getSafeValue( "#endTime", "00:00" );
+
+    let date = new Date(Date.now());
+    endTime = endTime.split(":");
+
+    date.setHours(endTime[0]);
+    date.setMinutes(endTime[1]);
+
+    const calcMin = (date.getMinutes() - parseInt(lunchMinutes) -
+		   (parseInt(workHours) * 60));
+    date.setMinutes(calcMin);
+
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    hours = (hours<10?'0':'') + hours;
+    minutes = (minutes<10?'0':'') + minutes;
+
+    $("#startTime").val(hours + ":" + minutes);
 
     //Cookies
     Cookies.set('workHours', workHours, { expires: gExpireTime });
