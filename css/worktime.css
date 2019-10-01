@@ -104,16 +104,15 @@ body {
     border: none;
 }
 
-@media (prefers-color-scheme: light) {
-    body {
+[data-theme="light"] body{
 	background: #9ceaed;
 	background: -moz-linear-gradient(-45deg, #9ceaed 0%, #7ae0ff 53%, #63aeff 100%);
 	background: -webkit-linear-gradient(-45deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%);
 	background: linear-gradient(135deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ceaed', endColorstr='#63aeff',GradientType=1 );
-    }
+}
 
-    .container-rect {
+[data-theme="light"] .container-rect {
 	background: rgb(255,255,255);
 	background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(242,255,254,1) 100%);
 	background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%,rgba(242,255,254,1) 100%);
@@ -121,14 +120,13 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2fffe',GradientType=1 );
     }
 
-    #overtime {
+[data-theme="light"] #overtime {
 	color: #ff0000;
 	text-shadow: rgb(255, 255, 255) 1px 1px 0px;
     }
-}
 
-@media (prefers-color-scheme: dark) {
-    body {
+
+[data-theme="dark"] body {
 	background: #2a4142;
 	background: -moz-linear-gradient(-45deg, #2a4142 0%, #244751 53%, #162a40 100%);
 	background: -webkit-linear-gradient(-45deg, #2a4142 0%,#244751 53%,#162a40 100%);
@@ -136,7 +134,7 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ceaed', endColorstr='#63aeff',GradientType=1 );
     }
 
-    .container-rect {
+[data-theme="dark"] .container-rect {
 	background: rgb(43, 43, 43,1);
 	background: -moz-linear-gradient(-45deg, rgba(43, 43, 43,1) 0%, rgba(35, 45, 47,1) 100%);
 	background: -webkit-linear-gradient(-45deg, rgba(43, 43, 43,1) 0%,rgba(35, 45, 47,1) 100%);
@@ -144,54 +142,53 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2fffe',GradientType=1 );
     }
 
-    #overtime {
+[data-theme="dark"] #overtime {
 	color: #bd1b1b;
 	text-shadow: rgb(70, 32, 32) 1px 1px 0px;
     }
 
-    .form-control {
+[data-theme="dark"] .form-control {
 	color: #fff;
 	background-color: #383838;
 	border: 1px solid #6f848d;
     }
 
-    .form-control[readonly] {
+[data-theme="dark"] .form-control[readonly] {
 	background-color: #555;
     }
 
-    .input-group-addon {
+[data-theme="dark"] .input-group-addon {
 	color: #fff;
 	background-color: #555;
 	border: 1px solid #6f848d;
     }
 
-    .flip-clock-label {
+[data-theme="dark"] .flip-clock-label {
 	color: white !important;
     }
 
-    .clockpicker-popover > .popover-title {
+[data-theme="dark"] .clockpicker-popover > .popover-title {
 	background-color: #333;
 	color: #fff;
     }
 
-    .clockpicker-popover > .popover-title > .text-primary {
+[data-theme="dark"] .clockpicker-popover > .popover-title > .text-primary {
 	color: #2e789b;
     }
 
 
-    .clockpicker-popover > .popover-content {
+[data-theme="dark"] .clockpicker-popover > .popover-content {
 	background-color: #575757;
     }
 
-    .clockpicker-popover > .popover-content > .clockpicker-plate {
+[data-theme="dark"] .clockpicker-popover > .popover-content > .clockpicker-plate {
 	background-color: #333;
     }
 
-    .clockpicker-tick {
+[data-theme="dark"] .clockpicker-tick {
 	color: #c6c6c6;
     }
 
-    .clockpicker-canvas-bg {
+[data-theme="dark"] .clockpicker-canvas-bg {
 	fill: #2e789b;
     }
-}
