@@ -20,10 +20,7 @@ function firstUpdate()
             document.getElementById('dispButton').setAttribute('title','Switch to Light Mode');
         }
     }
-    else{
-        document.documentElement.setAttribute('data-theme','light');
-        document.getElementById('dispButton').classList.add('btn-dark');
-    }
+    else getDefaultColor();
 
     if (Cookies.get("allowCookies")) {
 	Cookies.remove("allowCookies");
@@ -119,6 +116,21 @@ function updateEndTime() {
     Cookies.set('startTime', startTime, { expires: gExpireTime });
 
     startCountUp();
+}
+
+
+function getDefaultColor() {
+    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+    if(isDarkMode){
+        document.documentElement.setAttribute('data-theme','dark');
+        document.getElementById('dispButton').classList.add('btn-light');
+    }
+    else{
+        document.documentElement.setAttribute('data-theme','light');
+        document.getElementById('dispButton').classList.add('btn-dark');
+    }
+
 }
 
 
