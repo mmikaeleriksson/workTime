@@ -9,6 +9,19 @@ function getSafeValue(id, safeVal=0)
 
 function firstUpdate()
 {
+    if(localStorage.getItem('theme')){
+        document.documentElement.setAttribute('data-theme',localStorage.getItem('theme'));
+        if(localStorage.getItem('theme') == 'light'){
+            document.getElementById('dispButton').classList.add('btn-dark');
+            document.getElementById('dispButton').setAttribute('title','Switch to Dark Mode');
+        }
+        else{
+            document.getElementById('dispButton').classList.add('btn-light');
+            document.getElementById('dispButton').setAttribute('title','Switch to Light Mode');
+        }
+    }
+    else getDefaultColor();
+
     if (Cookies.get("allowCookies")) {
 	Cookies.remove("allowCookies");
     }
@@ -106,6 +119,21 @@ function updateEndTime() {
 }
 
 
+function getDefaultColor() {
+    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+    if(isDarkMode){
+        document.documentElement.setAttribute('data-theme','dark');
+        document.getElementById('dispButton').classList.add('btn-light');
+    }
+    else{
+        document.documentElement.setAttribute('data-theme','light');
+        document.getElementById('dispButton').classList.add('btn-dark');
+    }
+
+}
+
+
 function startCountUp()
 {
     let currentDate = new Date(Date.now());
@@ -184,4 +212,22 @@ function loadBusIframe()
     const url = $( "#busUrl" ).val();
     $( "#busIframe" ).attr('src',url);
     Cookies.set("busUrl", url, {expires: gExpireTime});
+}
+
+function toggleColorMode()
+{
+    if(document.documentElement.getAttribute('data-theme')=='light'){
+        document.documentElement.setAttribute('data-theme','dark');
+        document.getElementById('dispButton').classList.remove('btn-dark');
+        document.getElementById('dispButton').classList.add('btn-light');
+        document.getElementById('dispButton').setAttribute('title','Switch to Light Mode');
+    }
+    else{ 
+        document.documentElement.setAttribute('data-theme','light');
+        document.getElementById('dispButton').classList.remove('btn-light');
+        document.getElementById('dispButton').classList.add('btn-dark');
+        document.getElementById('dispButton').setAttribute('title','Switch to Dark Mode');
+    }
+    console.log(document.documentElement.getAttribute('data-theme'));
+    localStorage.setItem('theme',document.documentElement.getAttribute('data-theme'));
 }
