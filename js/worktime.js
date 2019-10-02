@@ -52,14 +52,18 @@ function firstUpdate()
 	loadBusIframe();
     }
 
-    $( ".clockpicker input" ).clockpicker({
+    $( "#startTimeDiv input" ).clockpicker({
 	autoclose: true,
 	afterDone: function() {
-        if(this.hasClass("startTimeClass"))
-            updateEndTime();
-        else
-            updateStartTime();
+        updateEndTime();
 	}
+    });
+
+    $( "#endTimeDiv input" ).clockpicker({
+        autoclose: true,
+        afterDone: function() {
+            updateStartTime();
+    }
     });
 
     $( "#collapsable" ).on("shown.bs.collapse", function () {
