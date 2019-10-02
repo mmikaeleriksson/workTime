@@ -29,7 +29,7 @@
     </div>
 
   <section id="workTimeSection" class="middle container-rect">
-    <div class="input-group clockpicker">
+    <div class="input-group clockpicker" id="startTimeDiv">
         <span class="input-group-addon">Start at </span>
       <input id="startTime" type="text" class="form-control" value="08:00"
 	     onKeyDown="if(event.keyCode==13) updateEndTime();">
@@ -56,10 +56,10 @@
 	<span class="input-group-addon">min</span>
     </div>
 
-    <div class="input-group input-margin">
+    <div class="input-group input-margin clockpicker" id="endTimeDiv">
       <span class="input-group-addon">Leave at </span>
       <input id="endTime" type="text" class="form-control" value="00:00"
-	     readonly>
+      onKeyDown="if(event.keyCode==13) updateStartTime();">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-time"></span>
       </span>
@@ -97,6 +97,7 @@
       id="dispButton"
       class="btn middle input-margin glyphicon glyphicon-adjust"
       onclick="toggleColorMode()"
+    >
     </button>
 
   </section>
