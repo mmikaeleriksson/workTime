@@ -192,3 +192,79 @@ body {
 [data-theme="dark"] .clockpicker-canvas-bg {
 	fill: #2e789b;
     }
+
+
+/* Navbar styling */
+
+#navbar {
+    margin-bottom: 20px;
+    background-color: #EEE;
+    display: table;
+    width: 100%;
+}
+
+.navButton {
+    display: table-cell;
+    width: 100px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.navButton:hover {
+    cursor: pointer;
+    background-color: #d6d2ce;
+}
+
+.navButton.active {
+    border-bottom: 2px solid teal;
+}
+
+#navbar .navButton:not(:last-of-type) {
+    border-right: 1px solid #d6d2ce;
+}
+
+.tabContent {
+    display: none;
+    width: 100%;
+}
+
+.defaultTab {
+    display: block;
+}
+
+#Credits hr {
+    margin: 0 0 5px 0;
+}
+
+[data-theme="dark"] #Credits h3 {
+    color: #fff;
+}
+
+[data-theme="dark"] #Credits a {
+    color: #fff;
+}
+
+[data-theme="dark"] #Credits li {
+    list-style-type: none;
+}
+
+[data-theme="dark"] #Credits li::before{
+     /* Unicode bullet symbol */
+     content: '\2022 ';
+     color: #fff;
+     padding-right: 0.5em;
+}
+
+[data-theme="dark"] #navbar .navButton:not(:last-of-type) {
+    border-right: 1px solid #d6d2ce;
+}
+
+[data-theme="dark"] .navButton {
+    background-color: #555555;
+    color: #fff;
+}
+
+[data-theme="dark"] .navButton:hover {
+    background-color: #d6d2ce;
+    color: black;
+}
