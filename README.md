@@ -21,6 +21,7 @@ A simple web application that helps you **count your time** that you are **spend
 - [**js-cookie**](https://github.com/js-cookie/js-cookie/)
 
 ## Contributors
+- [**React2Github**](https://github.com/react2github)
 - [**hqappz**](https://github.com/hqappz)
 - [**MaLarsson**](https://github.com/MaLarsson)
 - [**giacomomagini**](https://github.com/giacomomagini)
