@@ -36,7 +36,7 @@
       <input id="startTime" type="text" class="form-control" value="08:00"
 	     onKeyDown="if(event.keyCode==13) updateEndTime();">
       <span class="input-group-addon">
-        <span class="glyphicon glyphicon-time"></span>
+        <i class="far fa-clock"></i>
       </span>
     </div>
 
@@ -46,7 +46,7 @@
 	     value="8" onkeypress='return event.charCode >= 48 &&
       event.charCode <= 57'
 			onKeyDown="if(event.keyCode==13) updateEndTime();">
-	<span class="input-group-addon">h</span>
+	<span class="input-group-addon">hr</span>
     </div>
 
     <div class="input-group input-margin">
@@ -63,17 +63,17 @@
       <input id="endTime" type="text" class="form-control" value="00:00"
 	     readonly>
       <span class="input-group-addon">
-        <span class="glyphicon glyphicon-time"></span>
+        <i class="far fa-clock"></i>
       </span>
     </div>
 
     <button
       title="Show work time/overtime"
       id="collapseButton"
-      class="btn btn-info middle input-margin glyphicon
-	     glyphicon-plus-sign" data-toggle="collapse"
+      class="btn btn-info middle input-margin"
+      data-toggle="collapse"
        data-target="#collapsable"
-       >
+       ><i class="fas fa-plus-circle"></i>
     </button>
 
     <button
@@ -82,24 +82,23 @@
       class="btn btn-success middle input-margin"
       data-toggle="collapse"
       data-target="#bus"
-      ><i class="fas fa-bus" style="padding-top: 2.5px; padding-bottom: 2.5px"></i>
+      ><i class="fas fa-bus"></i>
     </button>
 
     <button
       title="Lunch not eaten"
       id="lunchButton"
-      class="btn btn-warning middle input-margin glyphicon
-	     glyphicon-ice-lolly notEaten"
+      class="btn btn-warning middle input-margin"
       onClick="toggleRemoveLunch()"
-      >
+      ><i class="fas fa-cookie foodIcon"></i>
     </button>
 
     <button
       title=""
       id="dispButton"
-      class="btn middle input-margin glyphicon glyphicon-adjust"
+      class="btn middle input-margin"
       onclick="toggleColorMode()"
-    ></button>
+    ><i class="fas color fa-sun"></i></button>
 
   </section>
 
