@@ -199,7 +199,6 @@ body {
 #navbar {
     margin-bottom: 20px;
     background-color: #EEE;
-    border-radius: 5px;
     display: table;
     width: 100%;
 }
@@ -214,11 +213,14 @@ body {
 .navButton:hover {
     cursor: pointer;
     background-color: #d6d2ce;
-    border-radius: 5px;
 }
 
 .navButton.active {
     border-bottom: 2px solid teal;
+}
+
+#navbar .navButton:not(:last-of-type) {
+    border-right: 1px solid #d6d2ce;
 }
 
 .tabContent {
@@ -253,11 +255,16 @@ body {
      padding-right: 0.5em;
 }
 
+[data-theme="dark"] #navbar .navButton:not(:last-of-type) {
+    border-right: 1px solid #d6d2ce;
+}
+
 [data-theme="dark"] .navButton {
-    background-color: #d6d2ce;
-    border-radius: 5px;
+    background-color: #555555;
+    color: #fff;
 }
 
 [data-theme="dark"] .navButton:hover {
-    background-color: #EEE;
+    background-color: #d6d2ce;
+    color: black;
 }
