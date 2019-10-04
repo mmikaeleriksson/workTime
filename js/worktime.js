@@ -1,4 +1,3 @@
-var gExpireTime = 365;
 
 function getSafeValue(id, safeVal=0)
 {
@@ -6,26 +5,25 @@ function getSafeValue(id, safeVal=0)
 }
 
 
-
-
 function firstUpdate()
 {
     addEventListenersToNavButtons();
 
-    if(localStorage.getItem('theme')){
+    if (localStorage.getItem('theme')){
         document.documentElement.setAttribute('data-theme',localStorage.getItem('theme'));
-        if(localStorage.getItem('theme') == 'light'){
+        if (localStorage.getItem('theme') == 'light'){
             document.getElementById('dispButton').classList.add('btn-dark');
             document.getElementById('dispButton').setAttribute('title','Switch to Dark Mode');
         }
-        else{
+        else {
             document.getElementById('dispButton').classList.add('btn-light');
             document.getElementById('dispButton').setAttribute('title','Switch to Light Mode');
         }
     }
-    else getDefaultColor();
+    else {
+	getDefaultModeColor();
+    }
 
-  
     if (localStorage.getItem("workHours")) {
 	$( "#workHours" ).val(localStorage.getItem("workHours"));
     }
@@ -64,7 +62,7 @@ function firstUpdate()
     });
 
     $( "#collapsable").on("hidden.bs.collapse", function () {
-    localStorage.removeItem("collapse");
+	localStorage.removeItem("collapse");
     });
 
     $( "#bus" ).on("shown.bs.collapse", function () {
@@ -118,14 +116,14 @@ function updateEndTime() {
 }
 
 
-function getDefaultColor() {
-    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+function getDefaultModeColor() {
+    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if(isDarkMode){
+    if (isDarkMode){
         document.documentElement.setAttribute('data-theme','dark');
         document.getElementById('dispButton').classList.add('btn-light');
     }
-    else{
+    else {
         document.documentElement.setAttribute('data-theme','light');
         document.getElementById('dispButton').classList.add('btn-dark');
     }
@@ -186,7 +184,7 @@ function toggleRemoveLunch()
 	lunchButton.addClass("glyphicon-ice-lolly-tasted");
 	lunchButton.addClass("eaten");
 	lunchButton.addClass("btn-success");
-	lunchButton.prop("title", "Lunch eaten")
+	lunchButton.prop("title", "Lunch eaten");
     }
     else {
         localStorage.removeItem("lunchButton");
@@ -199,7 +197,7 @@ function toggleRemoveLunch()
 	lunchButton.addClass("glyphicon-ice-lolly");
 	lunchButton.addClass("notEaten");
 	lunchButton.addClass("btn-warning");
-	lunchButton.prop("title", "Lunch not eaten")
+	lunchButton.prop("title", "Lunch not eaten");
     }
 
     updateEndTime();
@@ -213,15 +211,16 @@ function loadBusIframe()
     localStorage.setItem("busUrl", JSON.stringify(url));
 }
 
+
 function toggleColorMode()
 {
-    if(document.documentElement.getAttribute('data-theme')=='light'){
+    if (document.documentElement.getAttribute('data-theme')=='light'){
         document.documentElement.setAttribute('data-theme','dark');
         document.getElementById('dispButton').classList.remove('btn-dark');
         document.getElementById('dispButton').classList.add('btn-light');
         document.getElementById('dispButton').setAttribute('title','Switch to Light Mode');
     }
-    else{ 
+    else {
         document.documentElement.setAttribute('data-theme','light');
         document.getElementById('dispButton').classList.remove('btn-light');
         document.getElementById('dispButton').classList.add('btn-dark');
@@ -231,11 +230,12 @@ function toggleColorMode()
     localStorage.setItem('theme',document.documentElement.getAttribute('data-theme'));
 }
 
+
 /**
  * This function is used to switch between the tabs. Setting the one that was clicked on as
  * current active and showing its contents while hiding the content of the rest.
- * @param HTMLEvent event  
- * @param string tabName 
+ * @param HTMLEvent event
+ * @param string tabName
  */
 function openTab(event, tabName) {
     console.log(tabName);
@@ -255,6 +255,7 @@ function openTab(event, tabName) {
     document.getElementById(tabName).style.display = "inline-block";
     event.currentTarget.classList.add("active");
 }
+
 
 /**
  * This function adds event listeners to navigation buttons for them to function as intended
