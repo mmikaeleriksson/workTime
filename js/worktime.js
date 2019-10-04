@@ -25,33 +25,30 @@ function firstUpdate()
     }
     else getDefaultColor();
 
-    if (Cookies.get("allowCookies")) {
-	Cookies.remove("allowCookies");
+  
+    if (localStorage.getItem("workHours")) {
+	$( "#workHours" ).val(localStorage.getItem("workHours"));
     }
 
-    if (Cookies.get("workHours")) {
-	$( "#workHours" ).val(Cookies.get("workHours"));
+    if (localStorage.getItem("lunchMinutes")) {
+	$( "#lunchMinutes" ).val(localStorage.getItem("lunchMinutes"));
     }
 
-    if (Cookies.get("lunchMinutes")) {
-	$( "#lunchMinutes" ).val(Cookies.get("lunchMinutes"));
-    }
-
-    if (Cookies.get("startTime")) {
-	const startTime = Cookies.get("startTime").match(/(\d{2})/g);;
+    if (localStorage.getItem("startTime")) {
+	const startTime = localStorage.getItem("startTime").match(/(\d{2})/g);;
 	$( "#startTime" ).val(startTime[0] + ":" + startTime[1]);
     }
 
-    if (Cookies.get("collapse")) {
+    if (localStorage.getItem("collapse")) {
 	$( "#collapsable" ).collapse( "show" );
     }
 
-    if (Cookies.get("bus")) {
+    if (localStorage.getItem("bus")) {
 	$( "#bus" ).collapse( "show" );
     }
 
-    if (Cookies.get("busUrl")) {
-	$( "#busUrl" ).val(Cookies.get("busUrl"));
+    if (localStorage.getItem("busUrl")) {
+	$( "#busUrl" ).val(localStorage.getItem("busUrl"));
 	loadBusIframe();
     }
 
@@ -63,26 +60,26 @@ function firstUpdate()
     });
 
     $( "#collapsable" ).on("shown.bs.collapse", function () {
-	Cookies.set("collapse", "1");
+	localStorage.setItem("collapse", "1");
     });
 
     $( "#collapsable").on("hidden.bs.collapse", function () {
-	Cookies.remove("collapse");
+    localStorage.removeItem("collapse");
     });
 
     $( "#bus" ).on("shown.bs.collapse", function () {
-	Cookies.set("bus", "1", {expires: gExpireTime});
+	localStorage.setItem("bus", "1");
     });
 
     $( "#bus").on("hidden.bs.collapse", function () {
-	Cookies.remove("bus");
+        localStorage.removeItem("bus");
     });
 
     $( "#workHours" ).on("input", updateEndTime);
     $( "#lunchMinutes" ).on("input", updateEndTime);
     $( "#startTime" ).on("input", updateEndTime);
 
-    if (Cookies.get("lunchButton")) {
+    if (localStorage.getItem("lunchButton")) {
 	toggleRemoveLunch();
     }
 
@@ -113,10 +110,9 @@ function updateEndTime() {
 
     $("#endTime").val(hours + ":" + minutes);
 
-    //Cookies
-    Cookies.set('workHours', workHours, { expires: gExpireTime });
-    Cookies.set('lunchMinutes', lunchMinutes, { expires: gExpireTime });
-    Cookies.set('startTime', startTime, { expires: gExpireTime });
+    localStorage.setItem('workHours', workHours);
+    localStorage.setItem('lunchMinutes', lunchMinutes);
+    localStorage.setItem('startTime', startTime);
 
     startCountUp();
 }
@@ -180,7 +176,7 @@ function toggleRemoveLunch()
 
     if (lunchButton.hasClass("notEaten")) {
 	let halfADay = 0.5;
-	Cookies.set("lunchButton", "1", {expires: halfADay});
+	localStorage.setItem("lunchButton", JSON.stringify("1", {expires: halfADay}));
 
 	//CSS
 	lunchButton.removeClass("glyphicon-ice-lolly");
@@ -193,7 +189,7 @@ function toggleRemoveLunch()
 	lunchButton.prop("title", "Lunch eaten")
     }
     else {
-	Cookies.remove("lunchButton");
+        localStorage.removeItem("lunchButton");
 
 	//CSS
 	lunchButton.removeClass("glyphicon-ice-lolly-tasted");
@@ -214,7 +210,7 @@ function loadBusIframe()
 {
     const url = $( "#busUrl" ).val();
     $( "#busIframe" ).attr('src',url);
-    Cookies.set("busUrl", url, {expires: gExpireTime});
+    localStorage.setItem("busUrl", JSON.stringify(url));
 }
 
 function toggleColorMode()
