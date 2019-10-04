@@ -1,14 +1,17 @@
 var gExpireTime = 365;
 
-
 function getSafeValue(id, safeVal=0)
 {
     return $(id).val() || safeVal;
 }
 
 
+
+
 function firstUpdate()
 {
+    addEventListenersToNavButtons();
+
     if(localStorage.getItem('theme')){
         document.documentElement.setAttribute('data-theme',localStorage.getItem('theme'));
         if(localStorage.getItem('theme') == 'light'){
@@ -230,4 +233,42 @@ function toggleColorMode()
     }
     console.log(document.documentElement.getAttribute('data-theme'));
     localStorage.setItem('theme',document.documentElement.getAttribute('data-theme'));
+}
+
+/**
+ * This function is used to switch between the tabs. Setting the one that was clicked on as
+ * current active and showing its contents while hiding the content of the rest.
+ * @param HTMLEvent event  
+ * @param string tabName 
+ */
+function openTab(event, tabName) {
+    console.log(tabName);
+    //get contentTabs and convert to array and hide them all
+    let contentTabs = [...document.getElementsByClassName('tabContent')];
+    contentTabs.forEach((contentTab) => {
+        contentTab.style.display = "none";
+    });
+
+    //remove class active form all navButtons
+    let navButtons = [...document.getElementsByClassName('navButton')];
+    navButtons.forEach((navButton) => {
+        navButton.classList.remove("active");
+    });
+
+    //show selected tab contents and set clicked nav button as active
+    document.getElementById(tabName).style.display = "inline-block";
+    event.currentTarget.classList.add("active");
+}
+
+/**
+ * This function adds event listeners to navigation buttons for them to function as intended
+ */
+function addEventListenersToNavButtons() {
+    let navButtons = [...document.getElementsByClassName('navButton')];
+    navButtons.forEach((navButton) => {
+        navButton.addEventListener('click', function(event) {
+            //call openTab with event and tabName to switch active tab and contents
+            openTab(event, navButton.innerHTML.trim());
+        });
+    });
 }
