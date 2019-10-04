@@ -4,6 +4,3 @@
 [submodule "FlipClock"]
 	path = FlipClock
 	url = https://github.com/objectivehtml/FlipClock.git
-[submodule "js-cookie"]
-	path = js-cookie
-	url = https://github.com/js-cookie/js-cookie.git
