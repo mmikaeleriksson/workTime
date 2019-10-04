@@ -28,3 +28,4 @@ A simple web application that helps you **count your time** that you are **spend
 - [**geraldobraz**](https://github.com/geraldobraz)
 - [**Jayashrri**](https://github.com/Jayashrri)
 - [**mmikaeleriksson**](https://github.com/mmikaeleriksson)
+- [**alexandreinsua**](https://github.com/AlexandreInsua/)
