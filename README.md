@@ -28,4 +28,5 @@ A simple web application that helps you **count your time** that you are **spend
 - [**Prakhar-Srivastava**](https://github.com/Prakhar-Srivastava)
 - [**geraldobraz**](https://github.com/geraldobraz)
 - [**Jayashrri**](https://github.com/Jayashrri)
+- [**kimi43maro**](https://github.com/kimi43maro)
 - [**mmikaeleriksson**](https://github.com/mmikaeleriksson)
