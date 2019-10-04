@@ -27,8 +27,9 @@
     <div class="header">
 	  <span class="workTimeText">WorkTime</span>
     </div>
-    <div id='Container'>
+    
     <section id="workTimeSection" class="middle container-rect">
+      <div class='container'>
       <div class="input-group clockpicker">
         <span class="input-group-addon">Start at </span>
           <input id="startTime" type="text" class="form-control" value="08:00"
@@ -65,7 +66,7 @@
         </span>
       </div>
        
-      <div id='buttons'>
+      <div class='buttons'>
       <button
         title="Show work time/overtime"
         id="collapseButton"
@@ -101,8 +102,9 @@
       >
       </button>
     </div>
-  </section>
   </div>
+  </section>
+
 
   <div id="collapsable" class="middle collapse expandableContainer">
     <div class="clock middle"></div>
@@ -129,11 +131,16 @@
   <style>
       @media only screen and (min-width: 768px) 
       {  
-        .WorkTimeText {
-         font-size: 150px; 
-        }
+
         .header {
          padding-bottom: 0em; 
+         margin-left: 5%;
+        }
+
+        .WorkTimeText {
+         display: flex;
+         justify-content: center;
+         font-size: 150px; 
         }
         #WorkTimeSection {
          width: 100%;
@@ -142,12 +149,42 @@
         #Container {
          padding: 5%;
         }
+        .container {
+          width: auto;
+        }
         .middle {
         padding: 8%;  
+        margin-left: 5%;
         } 
+        .buttons {
+          display: flex;
+          align-content: center;  
+          
+        }
+        
         body {
-        max-width: 1000px;
+        max-width: 768px;
         }
       }
+
+      .header {
+         padding-bottom: 0em; 
+        }
+
+         
+        #Container {
+         padding: 10%;
+        }
+    
+        }
+        .middle {
+        padding: 10%;  
+        margin-left: 5%;
+        } 
+        .buttons {
+          display: flex;
+          align-content: center;  
+          
+        }
      </style>
 </body>
