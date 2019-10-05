@@ -30,3 +30,4 @@ A simple web application that helps you **count your time** that you are **spend
 - [**kimi43maro**](https://github.com/kimi43maro)
 - [**AlexandreInsua**](https://github.com/AlexandreInsua)
 - [**mmikaeleriksson**](https://github.com/mmikaeleriksson)
+- [**jyntran**](https://github.com/jyntran)
