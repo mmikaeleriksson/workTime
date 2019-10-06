@@ -104,6 +104,16 @@ body {
     border: none;
 }
 
+#githubBtn {
+    display: inline-flex;
+}
+
+#githubBtnLogo {
+    content:url(../images/GitHub-Mark-Light-32px.png);
+    height: 20px;
+    padding-left: 10px;
+}
+
 [data-theme="light"] body{
 	background: #9ceaed;
 	background: -moz-linear-gradient(-45deg, #9ceaed 0%, #7ae0ff 53%, #63aeff 100%);
