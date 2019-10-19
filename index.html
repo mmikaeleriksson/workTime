@@ -1,28 +1,28 @@
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="clockpicker/dist/jquery-clockpicker.js"></script>
-  <script type="text/javascript" src="FlipClock/compiled/flipclock.js"></script>
-  <link rel="stylesheet" type="text/css" href="clockpicker/src/standalone.css">
-  <link rel="stylesheet" type="text/css" href="clockpicker/dist/jquery-clockpicker.min.css">
-  <link rel="stylesheet" type="text/css" href="FlipClock/compiled/flipclock.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="clockpicker/dist/jquery-clockpicker.js"></script>
+    <script type="text/javascript" src="FlipClock/compiled/flipclock.js"></script>
+    <link rel="stylesheet" type="text/css" href="clockpicker/src/standalone.css">
+    <link rel="stylesheet" type="text/css" href="clockpicker/dist/jquery-clockpicker.min.css">
+    <link rel="stylesheet" type="text/css" href="FlipClock/compiled/flipclock.css">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <!--Font Awesome CDN-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
 
-  <!-- Worktime -->
-  <script type="text/javascript" src="js/worktime.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/worktime.css">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <!-- Worktime -->
+    <script type="text/javascript" src="js/worktime.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/worktime.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
 
-  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
-  <title>WorkTime</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>WorkTime</title>
 </head>
 
 <body onload="firstUpdate();">
@@ -30,143 +30,143 @@
 	<span class="workTimeText">WorkTime</span>
     </div>
 
-  <section id="workTimeSection" class="middle container-rect">
+    <section id="workTimeSection" class="middle container-rect">
 
-      <div id="navbar">
-       <div class="navButton active">WorkTime</div>
-       <div class="navButton">Credits</div>
-      </div>
+	<div id="navbar">
+	    <div class="navButton active">WorkTime</div>
+	    <div class="navButton">Credits</div>
+	</div>
 
-    <div id="WorkTime" class="tabContent defaultTab">
-    <div class="input-group clockpicker">
-        <span class="input-group-addon">Start at </span>
-      <input id="startTime" type="text" class="form-control" value="08:00"
-	     onKeyDown="if(event.keyCode==13) updateEndTime();">
-      <span class="input-group-addon">
-        <i class="far fa-clock"></i>
-      </span>
+	<div id="WorkTime" class="tabContent defaultTab">
+	    <div class="input-group clockpicker">
+		<span class="input-group-addon">Start at </span>
+		<input id="startTime" type="text" class="form-control" value="08:00"
+		       onKeyDown="if(event.keyCode==13) updateEndTime();">
+		<span class="input-group-addon">
+		    <i class="far fa-clock"></i>
+		</span>
+	    </div>
+
+	    <div class="input-group input-margin">
+		<span class="input-group-addon">Work</span>
+		<input id="workHours" type="text" class="form-control"
+		       value="8" onkeypress='return event.charCode >= 48 &&
+			   event.charCode <= 57'
+			   onKeyDown="if(event.keyCode==13) updateEndTime();">
+		<span class="input-group-addon">h</span>
+	    </div>
+
+	    <div class="input-group input-margin">
+		<span class="input-group-addon">Lunch</span>
+		<input id="lunchMinutes" type="text" class="form-control"
+		       value="30" onkeypress='return event.charCode >= 48 &&
+			   event.charCode <= 57'
+			   onKeyDown="if(event.keyCode==13) updateEndTime();">
+		<span class="input-group-addon">min</span>
+	    </div>
+
+	    <div class="input-group input-margin">
+		<span class="input-group-addon">Leave at </span>
+		<input id="endTime" type="text" class="form-control" value="00:00"
+		       readonly>
+		<span class="input-group-addon">
+		    <i class="far fa-clock"></i>
+		</span>
+	    </div>
+
+	    <button
+		title="Show work time/overtime"
+		id="collapseButton"
+		class="btn btn-info middle input-margin"
+		data-toggle="collapse"
+		data-target="#collapsable">
+		<i class="fas fa-plus-circle"></i>
+	    </button>
+
+	    <button
+		title="Show coming bus"
+		id="busButton"
+		class="btn btn-success middle input-margin"
+		data-toggle="collapse"
+		data-target="#bus"
+	    ><i class="fas fa-bus"></i>
+	    </button>
+
+	    <button
+		title="Lunch not eaten"
+		id="lunchButton"
+		class="btn btn-warning middle input-margin notEaten"
+		onClick="toggleRemoveLunch()"
+	    ><i class="fas fa-cookie foodIcon"></i>
+	    </button>
+
+	    <button
+		title=""
+		id="dispButton"
+		class="btn middle input-margin"
+		onclick="toggleColorMode()"
+	    ><i class="fas color"></i>
+	    </button>
+
+	</div>
+
+	<div id="Credits" class="tabContent">
+	    <a href="https://github.com/mmikaeleriksson/workTime"
+	       title="View on GitHub"
+	       class="btn btn-info"
+	       id="githubBtn"
+	    >
+		<span id="githubBtnText">View on GitHub</span>
+		<div id="githubBtnLogo"></div>
+	    </a>
+
+	    <h3>Icons</h3>
+	    <hr>
+	    <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+
+	    <h3>Submodules</h3>
+	    <hr>
+	    <li><a href="https://github.com/objectivehtml/FlipClock/" target="_blank">FlipClock</a></li>
+	    <li><a href="https://github.com/weareoutman/clockpicker/" target="_blank">clockpicker</a></li>
+
+	    <h3>Contributors</h3>
+	    <hr>
+	    <li><a href="https://github.com/hqappz" target="_blank">hqappz</a></li>
+	    <li><a href="https://github.com/MaLarsson" target="_blank">MaLarsson</a></li>
+	    <li><a href="https://github.com/giacomomagini" target="_blank">giacomomagini</a></li>
+	    <li><a href="https://github.com/mmacq" target="_blank">mmacq</a></li>
+	    <li><a href="https://github.com/Prakhar-Srivastava" target="_blank">Prakhar-Srivastava</a></li>
+	    <li><a href="https://github.com/geraldobraz" target="_blank">geraldobraz</a></li>
+	    <li><a href="https://github.com/Jayashrri" target="_blank">Jayashrri</a></li>
+	    <li><a href="https://github.com/kimi43maro" target="_blank">kimi43maro</a></li>
+	    <li><a href="https://github.com/AlexandreInsua" target="_blank">AlexandreInsua</a></li>
+	    <li><a href="https://github.com/Shubhayu-Das" target="_blank">Shubhayu-Das</a></li>
+	    <li><a href="https://github.com/cjharkins" target="_blank">cjharkins</a></li>
+	    <li><a href="https://github.com/mmikaeleriksson" target="_blank">mmikaeleriksson</a></li>
+	</div>
+    </section>
+
+
+    <div id="collapsable" class="middle collapse expandableContainer">
+	<div class="clock middle"></div>
+
+	<div id="overtime" class="middle hidden">
+	    <span>Overtime</span>
+	</div>
     </div>
 
-    <div class="input-group input-margin">
-      <span class="input-group-addon">Work</span>
-      <input id="workHours" type="text" class="form-control"
-	     value="8" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'
-			onKeyDown="if(event.keyCode==13) updateEndTime();">
-      <span class="input-group-addon">h</span>
-    </div>
-
-    <div class="input-group input-margin">
-      <span class="input-group-addon">Lunch</span>
-      <input id="lunchMinutes" type="text" class="form-control"
-	     value="30" onkeypress='return event.charCode >= 48 &&
-      event.charCode <= 57'
-			onKeyDown="if(event.keyCode==13) updateEndTime();">
-      <span class="input-group-addon">min</span>
-    </div>
-
-    <div class="input-group input-margin">
-      <span class="input-group-addon">Leave at </span>
-      <input id="endTime" type="text" class="form-control" value="00:00"
-	     readonly>
-      <span class="input-group-addon">
-        <i class="far fa-clock"></i>
-      </span>
-    </div>
-
-    <button
-      title="Show work time/overtime"
-      id="collapseButton"
-      class="btn btn-info middle input-margin"
-      data-toggle="collapse"
-      data-target="#collapsable">
-      <i class="fas fa-plus-circle"></i>
-    </button>
-
-    <button
-      title="Show coming bus"
-      id="busButton"
-      class="btn btn-success middle input-margin"
-      data-toggle="collapse"
-      data-target="#bus"
-      ><i class="fas fa-bus"></i>
-    </button>
-
-    <button
-      title="Lunch not eaten"
-      id="lunchButton"
-      class="btn btn-warning middle input-margin notEaten"
-      onClick="toggleRemoveLunch()"
-      ><i class="fas fa-cookie foodIcon"></i>
-    </button>
-
-    <button
-      title=""
-      id="dispButton"
-      class="btn middle input-margin"
-      onclick="toggleColorMode()"
-      ><i class="fas color"></i>
-    </button>
-
-  </div>
-
-  <div id="Credits" class="tabContent">
-      <a href="https://github.com/mmikaeleriksson/workTime"
-	 title="View on GitHub"
-	 class="btn btn-info"
-	 id="githubBtn"
-      >
-	  <span id="githubBtnText">View on GitHub</span>
-	  <div id="githubBtnLogo"></div>
-      </a>
-
-    <h3>Icons</h3>
-    <hr>
-    <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
-
-    <h3>Submodules</h3>
-    <hr>
-    <li><a href="https://github.com/objectivehtml/FlipClock/" target="_blank">FlipClock</a></li>
-    <li><a href="https://github.com/weareoutman/clockpicker/" target="_blank">clockpicker</a></li>
-
-    <h3>Contributors</h3>
-    <hr>
-    <li><a href="https://github.com/hqappz" target="_blank">hqappz</a></li>
-    <li><a href="https://github.com/MaLarsson" target="_blank">MaLarsson</a></li>
-    <li><a href="https://github.com/giacomomagini" target="_blank">giacomomagini</a></li>
-    <li><a href="https://github.com/mmacq" target="_blank">mmacq</a></li>
-    <li><a href="https://github.com/Prakhar-Srivastava" target="_blank">Prakhar-Srivastava</a></li>
-    <li><a href="https://github.com/geraldobraz" target="_blank">geraldobraz</a></li>
-    <li><a href="https://github.com/Jayashrri" target="_blank">Jayashrri</a></li>
-    <li><a href="https://github.com/kimi43maro" target="_blank">kimi43maro</a></li>
-    <li><a href="https://github.com/AlexandreInsua" target="_blank">AlexandreInsua</a></li>
-    <li><a href="https://github.com/Shubhayu-Das" target="_blank">Shubhayu-Das</a></li>
-    <li><a href="https://github.com/cjharkins" target="_blank">cjharkins</a></li>
-    <li><a href="https://github.com/mmikaeleriksson" target="_blank">mmikaeleriksson</a></li>
-  </div>
-  </section>
-
-
-  <div id="collapsable" class="middle collapse expandableContainer">
-    <div class="clock middle"></div>
-
-    <div id="overtime" class="middle hidden">
-      <span>Overtime</span>
-    </div>
-  </div>
-
-  <div id="bus" class="middle collapse container-rect expandableContainer">
-    <div id="busDiv" class="middle">
-      <div id="busInput" class="input-group">
-        <span class="input-group-addon">Url</span>
-        <input id="busUrl" class="form-control"
-	       onKeyDown="if(event.keyCode==13) loadBusIframe();">
+    <div id="bus" class="middle collapse container-rect expandableContainer">
+	<div id="busDiv" class="middle">
+	    <div id="busInput" class="input-group">
+		<span class="input-group-addon">Url</span>
+		<input id="busUrl" class="form-control"
+		       onKeyDown="if(event.keyCode==13) loadBusIframe();">
 	       </input>
-      </div>
-      <iframe id="busIframe"
-	      src="">
-      </iframe>
+	    </div>
+	    <iframe id="busIframe"
+		    src="">
+	    </iframe>
+	</div>
     </div>
-  </div>
 
 </body>
