@@ -32,3 +32,4 @@ A simple web application that helps you **count your time** that you are **spend
 - [**Shubhayu-Das**](https://github.com/Shubhayu-Das)
 - [**cjharkins**](https://github.com/cjharkins)
 - [**mmikaeleriksson**](https://github.com/mmikaeleriksson)
+- [**jyntran**](https://github.com/jyntran)
