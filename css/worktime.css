@@ -21,6 +21,7 @@
     width: 300px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.15);
+    margin-bottom: 2.5em;
 }
 
 .input-margin {
@@ -74,6 +75,7 @@ body {
 
 .expandableContainer {
     margin-top: 2.5em;
+    margin-bottom: 2.5em;
 }
 
 #overtime {
@@ -107,7 +109,6 @@ body {
 
 #bus {
     width: 345px;
-    margin-bottom: 50px;
 }
 
 #busDiv {
