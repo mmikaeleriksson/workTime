@@ -60,6 +60,10 @@ function firstUpdate() {
 	loadBusIframe();
     }
 
+    if (localStorage.getItem("timeRemainingSwitch")) {
+	switchTimeCount();
+    }
+
     $(".clockpicker input").clockpicker({
 	autoclose: true,
 	afterDone: function() {
@@ -168,13 +172,12 @@ function startCountUp() {
     let currentDate = new Date(Date.now());
     let startDate = getStartDate();
 
-    countupMinutes = getWorkedMinutes(startDate, currentDate);
+    let countupMinutes = getWorkedMinutes(startDate, currentDate);
     const workHours = $("#workHours").val();
     let workMinutes = workHours * 60;
 
     let remaining =  workMinutes - countupMinutes;
     if (remaining < 0) remaining = 0;
-    console.log("Remaining minutes: ", remaining);
 
     if (currentDate < startDate || countupMinutes < 0) {
 	$(".clock").FlipClock(0, {});
@@ -230,12 +233,14 @@ function switchTimeCount() {
 	icon.addClass("fa-toggle-on");
 	clock.addClass("hidden");
 	remainingClock.removeClass("hidden");
+	localStorage.setItem("timeRemainingSwitch", true);
     }
     else {
 	icon.removeClass("fa-toggle-on");
 	icon.addClass("fa-toggle-off");
 	clock.removeClass("hidden");
 	remainingClock.addClass("hidden");
+	localStorage.removeItem("timeRemainingSwitch");
     }
 }
 
