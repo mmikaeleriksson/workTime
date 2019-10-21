@@ -6,7 +6,8 @@ This project uses Bootstrap and some other github projects as submodules.
 When making changes try to look into those libraries and see if something useful can be used from there.
 
 ## Indentation
-This project is mainly edited via emacs editor.
+This project is mainly edited via emacs editor. (Emacs default indentation style)
+
 When editing locally you are free to use any editor of your choice, but when pushing changes that are intended for a pull request, indent your changes with emacs editor and push.
 
 Major modes used for different files:
