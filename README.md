@@ -13,6 +13,7 @@ A simple web application that helps you **count your time** that you are **spend
 
 # Credits
 ## Libraries
+- [**Bootstrap**](https://getbootstrap.com/)
 - [**Font Awesome**](https://fontawesome.com/)
 
 ## Submodules

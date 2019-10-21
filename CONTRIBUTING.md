@@ -4,6 +4,7 @@ When contributing either take an [issue listed](https://github.com/mmikaelerikss
 ## Library usage
 This project uses Bootstrap and some other github projects as submodules.
 When making changes try to look into those libraries and see if something useful can be used from there.
+[README.md/Libraries](https://github.com/mmikaeleriksson/workTime/blob/master/README.md#libraries)
 
 ## Indentation
 This project is mainly edited via emacs editor. (Emacs default indentation style)
