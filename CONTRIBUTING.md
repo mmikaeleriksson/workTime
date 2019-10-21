@@ -5,6 +5,15 @@ When contributing either take an [issue listed](https://github.com/mmikaelerikss
 This project uses Bootstrap and some other github projects as submodules.
 When making changes try to look into those libraries and see if something useful can be used from there.
 
+## Indentation
+This project is mainly edited via emacs editor.
+When editing locally you are free to use any editor of your choice, but when pushing changes that are intended for a pull request, indent your changes with emacs editor and push.
+
+Major modes used for different files:
+- JavaScript: js-mode
+- Html: web-mode
+- CSS: css-mode
+
 ## Pull Request
 - Submit a pull request and mention which issue number it solves.
 - Add yourself to the contributors in [README.md](https://github.com/mmikaeleriksson/workTime/blob/master/README.md)
