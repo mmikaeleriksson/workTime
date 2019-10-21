@@ -13,7 +13,7 @@ A simple web application that helps you **count your time** that you are **spend
 
 # Credits
 ## Libraries
-- [**Glyphicons**](https://www.glyphicons.com/)
+- [**Font Awesome**](https://fontawesome.com/)
 
 ## Submodules
 - [**FlipClock**](https://github.com/objectivehtml/FlipClock/)
