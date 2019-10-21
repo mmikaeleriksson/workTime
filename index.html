@@ -38,6 +38,21 @@
 	</div>
 
 	<div id="WorkTime" class="tabContent defaultTab">
+	    <div class="input-group hidden" id="debugContainer">
+		<div class="checkbox" id="debugCheckboxDiv">
+		    <input type="checkbox" id="debugCheckbox"
+			   onchange="updateEndTime();">
+		</div>
+
+		<div class="input-group clockpicker" id="debugTimeDiv">
+		    <input id="debugTime" type="text" class="form-control" value="08:00"
+			   onKeyDown="if(event.keyCode==13) updateEndTime();">
+		    <span class="input-group-addon">
+			<span class="glyphicon glyphicon-time"></span>
+		    </span>
+		</div>
+	    </div>
+
 	    <div class="input-group clockpicker">
 		<span class="input-group-addon">Start at </span>
 		<input id="startTime" type="text" class="form-control" value="08:00"
@@ -144,9 +159,13 @@
 	    <li><a href="https://github.com/cjharkins" target="_blank">cjharkins</a></li>
 	    <li><a href="https://github.com/nyckel" target="_blank">Nyckel</a></li>
 	    <li><a href="https://github.com/mmikaeleriksson" target="_blank">mmikaeleriksson</a></li>
+
+	    <div id="debugSwitch">
+		<i class="fas fa-toggle-off fa-2x"></i>
+		<h4>Debug</h4>
+	    </div>
 	</div>
     </section>
-
 
     <div id="collapsable" class="middle collapse expandableContainer">
 	<div class="clock middle"></div>

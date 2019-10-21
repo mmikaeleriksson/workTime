@@ -87,6 +87,7 @@ function firstUpdate() {
 	localStorage.removeItem("bus");
     });
 
+    $("#debugTime").on("input", updateEndTime);
     $("#workHours").on("input", updateEndTime);
     $("#lunchMinutes").on("input", updateEndTime);
     $("#startTime").on("input", updateEndTime);
@@ -95,6 +96,14 @@ function firstUpdate() {
     if (localStorage.getItem("lunchButton")) {
 	toggleRemoveLunch();
     }
+
+    if (getUrlParameter("debug")) {
+	enableDebug();
+    }
+
+    $("#debugSwitch").click(function() {
+	toggleDebugParameter();
+    });
 
     updateEndTime();
 }
@@ -170,7 +179,15 @@ function getStartDate() {
 
 function startCountUp() {
     let currentDate = new Date(Date.now());
+    const debugCheckbox = document.getElementById("debugCheckbox").checked;
+    let debugTime = $( "#debugTime" ).val();
     let startDate = getStartDate();
+
+    if (debugCheckbox) {
+	debugTime = debugTime.split(":");
+	currentDate.setHours(parseInt(debugTime[0]));
+	currentDate.setMinutes(parseInt(debugTime[1]));
+    }
 
     let countupMinutes = getWorkedMinutes(startDate, currentDate);
     const workHours = $("#workHours").val();
@@ -195,7 +212,15 @@ function startCountUp() {
     else {
 	function startCountDown() {
 	    let currentDate = new Date(Date.now());
+	    const debugCheckbox = document.getElementById("debugCheckbox").checked;
+	    let debugTime = $( "#debugTime" ).val();
 	    let startDate = getStartDate();
+
+	    if (debugCheckbox) {
+		debugTime = debugTime.split(":");
+		currentDate.setHours(parseInt(debugTime[0]));
+		currentDate.setMinutes(parseInt(debugTime[1]));
+	    }
 
 	    const workHours = $("#workHours").val();
 	    let workMinutes = workHours * 60;
@@ -335,6 +360,59 @@ function toggleColorMode() {
 	"theme",
 	document.documentElement.getAttribute("data-theme")
     );
+}
+
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+
+    return undefined;
+}
+
+function toggleDebugParameter() {
+    let url = document.location.href;
+
+    if (getUrlParameter("debug")) {
+	let debugParameter = "&debug=true";
+
+	if (url.includes("?debug=true")) {
+	    debugParameter="?debug=true";
+	}
+
+	url = url.replace(debugParameter,'');
+    }
+    else {
+	let debugParameter;
+
+	if (url.includes('?')) {
+	    debugParameter = "&debug=true";
+	}
+	else{
+	    debugParameter= "?debug=true";
+	}
+
+	url += debugParameter;
+    }
+
+    document.location = url;
+}
+
+function enableDebug() {
+    $("#debugContainer").removeClass("hidden");
+
+    let icon = $("#debugSwitch > .fas");
+    icon.removeClass("fa-toggle-off");
+    icon.addClass("fa-toggle-on");
 }
 
 /**

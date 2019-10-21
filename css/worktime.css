@@ -42,9 +42,11 @@ body {
     flex-direction: row;
     vertical-align: middle;
 }
+
 #timeRemainingSwitch i {
     align-self: center;
 }
+
 #timeRemainingSwitch h4 {
     display: inline-block;
     margin: 0px 10px;
@@ -115,10 +117,38 @@ body {
     margin-bottom: 0.5em;
 }
 
-
 #busIframe {
     height: 500px;
     border: none;
+}
+
+#debugSwitch {
+    color: black;
+    display: flex;
+    margin-top: 0.5em;
+}
+
+#debugSwitch i {
+    align-self: center;
+}
+
+#debugSwitch h4 {
+    margin: 0px 10px;
+    align-self: center;
+}
+
+#debugContainer {
+    margin-bottom: 0.5em;
+}
+
+#debugCheckboxDiv {
+    float: left;
+    margin-left: 20px;
+}
+
+#debugTimeDiv {
+    float: left;
+    width: 260px;
 }
 
 #githubBtn {
@@ -294,4 +324,8 @@ body {
 [data-theme="dark"] .navButton:hover {
     background-color: #d6d2ce;
     color: black;
+}
+
+[data-theme="dark"] #debugSwitch {
+    color: #fff;
 }
