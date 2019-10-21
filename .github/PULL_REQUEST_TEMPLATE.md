@@ -1,9 +1,9 @@
 🤖 Automated PR template 🐱‍💻
 
-This pull request resolves issue #<i>issue number</i>
+This pull request resolves issue #issue number
 
 Description:<br/>
-<i>description of changes</i>
+description of changes
 
 ### Checklist
 
