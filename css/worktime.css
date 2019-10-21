@@ -37,7 +37,7 @@ body {
 }
 
 #timeRemainingSwitch {
-    color: #fff;
+    color: black;
     display: flex;
     flex-direction: row;
     vertical-align: middle;
@@ -327,5 +327,9 @@ body {
 }
 
 [data-theme="dark"] #debugSwitch {
+    color: #fff;
+}
+
+[data-theme="dark"] #timeRemainingSwitch {
     color: #fff;
 }
