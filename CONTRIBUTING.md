@@ -17,6 +17,6 @@ Major modes used for different files:
 
 ## Pull Request
 - Submit a pull request and mention which issue number it solves.
-- Add yourself to the contributors in [README.md](https://github.com/mmikaeleriksson/workTime/blob/master/README.md)
+- Add yourself to the contributors in [README.md](https://github.com/mmikaeleriksson/workTime/blob/master/README.md) and the Contributors section in [index.html](https://github.com/mmikaeleriksson/workTime/blob/master/index.html)
 
 Pull requests might not be merged directly during [#hacktoberfest](https://hacktoberfest.digitalocean.com/) so that more people have time to give the problem a try for themselves.
