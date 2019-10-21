@@ -31,9 +31,24 @@ body {
     height: 100%;
 }
 
-
-.clock {
+#timeRemainingSwitch,
+.clock, .clockRemaining {
     width: 320px;
+}
+
+#timeRemainingSwitch {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+}
+#timeRemainingSwitch i {
+    align-self: center;
+}
+#timeRemainingSwitch h4 {
+    display: inline-block;
+    margin: 0px 10px;
+    align-self: center;
 }
 
 .header {
@@ -81,7 +96,9 @@ body {
 
 .flip-clock-divider.seconds,
 .clock ul:nth-child(8),
-.clock ul:nth-child(9)
+.clock ul:nth-child(9),
+.clockRemaining ul:nth-child(8),
+.clockRemaining ul:nth-child(9)
 {
     display: none;
 }
