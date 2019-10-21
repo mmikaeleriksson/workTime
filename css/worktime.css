@@ -28,7 +28,7 @@
 }
 
 body {
-    height: 100%;
+    height: auto;
 }
 
 #timeRemainingSwitch,
@@ -107,6 +107,7 @@ body {
 
 #bus {
     width: 345px;
+    margin-bottom: 50px;
 }
 
 #busDiv {
