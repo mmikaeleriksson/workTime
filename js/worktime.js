@@ -63,6 +63,9 @@ function firstUpdate() {
     if (localStorage.getItem("timeRemainingSwitch")) {
 	switchTimeCount();
     }
+    else {
+	updateTimeRemainingSwitch();
+    }
 
     $(".clockpicker input").clockpicker({
 	autoclose: true,
@@ -222,16 +225,31 @@ function updateClock() {
 
 function switchTimeCount() {
     let icon = $("#timeRemainingSwitch > .fas");
+    let text = $("#timeRemainingSwitch").children('h4');
 
     if (icon.hasClass("fa-toggle-off")) {
 	icon.removeClass("fa-toggle-off");
 	icon.addClass("fa-toggle-on");
-	localStorage.setItem("timeRemainingSwitch", true);
     }
     else {
 	icon.removeClass("fa-toggle-on");
 	icon.addClass("fa-toggle-off");
+    }
+
+    updateTimeRemainingSwitch();
+}
+
+function updateTimeRemainingSwitch() {
+    let icon = $("#timeRemainingSwitch > .fas");
+    let text = $("#timeRemainingSwitch").children('h4');
+
+    if (icon.hasClass("fa-toggle-off")) {
+	text.html("Time worked");
 	localStorage.removeItem("timeRemainingSwitch");
+    }
+    else {
+	text.html("Time remaining");
+	localStorage.setItem("timeRemainingSwitch", true);
     }
 }
 
