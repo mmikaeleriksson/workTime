@@ -105,6 +105,10 @@ function firstUpdate() {
 	toggleDebugParameter();
     });
 
+    $("#timeRemainingSwitch").click(function() {
+	updateClock();
+    });
+
     updateEndTime();
 }
 
@@ -135,7 +139,7 @@ function updateEndTime() {
     localStorage.setItem("lunchMinutes", lunchMinutes);
     localStorage.setItem("startTime", startTime);
 
-    startCountUp();
+    updateClock();
 }
 
 function getDefaultModeColor() {
@@ -177,7 +181,10 @@ function getStartDate() {
     return startDate;
 }
 
-function startCountUp() {
+function updateClock() {
+    let countDown =
+	$("#timeRemainingSwitch").children('i').hasClass("fa-toggle-on");
+
     let currentDate = new Date(Date.now());
     const debugCheckbox = document.getElementById("debugCheckbox").checked;
     let debugTime = $( "#debugTime" ).val();
@@ -193,78 +200,37 @@ function startCountUp() {
     const workHours = $("#workHours").val();
     let workMinutes = workHours * 60;
 
-    let remaining =  workMinutes - countupMinutes;
-    if (remaining < 0) remaining = 0;
+    if (countDown) {
+	let remaining =  workMinutes - countupMinutes;
+	if (remaining < 0) remaining = 0;
 
-    if (currentDate < startDate || countupMinutes < 0) {
-	$(".clock").FlipClock(0, {});
-	$(".clockRemaining").FlipClock(remaining, {autoStart: false});
+	$(".clock").FlipClock(remaining * 60 + 60, {countdown: true});
     }
     else {
-	$(".clock").FlipClock(countupMinutes * 60, {});
-	$(".clockRemaining").FlipClock(remaining * 60 + 60, {
-	    countdown: true, clockFace: 'HourlyCounter'});
+	if (currentDate < startDate || countupMinutes < 0) {
+	    $(".clock").FlipClock(0, {});
+	}
+	else {
+	    $(".clock").FlipClock(countupMinutes * 60, {});
+	}
     }
 
     if (countupMinutes > workMinutes) {
 	$("#overtime").removeClass("hidden");
     }
-    else {
-	function startCountDown() {
-	    let currentDate = new Date(Date.now());
-	    const debugCheckbox = document.getElementById("debugCheckbox").checked;
-	    let debugTime = $( "#debugTime" ).val();
-	    let startDate = getStartDate();
-
-	    if (debugCheckbox) {
-		debugTime = debugTime.split(":");
-		currentDate.setHours(parseInt(debugTime[0]));
-		currentDate.setMinutes(parseInt(debugTime[1]));
-	    }
-
-	    const workHours = $("#workHours").val();
-	    let workMinutes = workHours * 60;
-
-	    let countupMinutes = getWorkedMinutes(startDate, currentDate);
-
-	    if (currentDate < startDate || countupMinutes < 0) {
-		$(".clock").FlipClock(0, {});
-	    }
-	    else {
-		$(".clock").FlipClock(countupMinutes * 60, {});
-	    }
-
-	    if (countupMinutes > workMinutes) {
-		$("#overtime").removeClass("hidden");
-	    }
-	    else {
-		$("#overtime").addClass("hidden");
-	    }
-
-	    let remaining = workMinutes - countupMinutes;
-	}
-
-	$("#overtime").addClass("hidden");
-    }
 }
 
 function switchTimeCount() {
     let icon = $("#timeRemainingSwitch > .fas");
-    let clock = $(".clock");
-    let remainingClock = $(".clockRemaining");
 
     if (icon.hasClass("fa-toggle-off")) {
 	icon.removeClass("fa-toggle-off");
 	icon.addClass("fa-toggle-on");
-	clock.addClass("hidden");
-	remainingClock.removeClass("hidden");
 	localStorage.setItem("timeRemainingSwitch", true);
     }
     else {
 	icon.removeClass("fa-toggle-on");
 	icon.addClass("fa-toggle-off");
-	clock.removeClass("hidden");
-	remainingClock.addClass("hidden");
 	localStorage.removeItem("timeRemainingSwitch");
     }
 }
