@@ -6,28 +6,28 @@ function firstUpdate() {
     addEventListenersToNavButtons();
 
     if (localStorage.getItem("theme")) {
-	document.documentElement.setAttribute(
-	    "data-theme",
-	    localStorage.getItem("theme")
-	);
+        document.documentElement.setAttribute(
+            "data-theme",
+            localStorage.getItem("theme")
+        );
 
-	if (localStorage.getItem("theme") == "light") {
-	    document.getElementById("dispButton").classList.add("btn-dark");
-	    document
-		.getElementById("dispButton")
-		.setAttribute("title", "Switch to Dark Mode");
-	    document.querySelector(".color").classList.add("fa-moon");
-	}
-	else {
-	    document.getElementById("dispButton").classList.add("btn-light");
-	    document
-		.getElementById("dispButton")
-		.setAttribute("title", "Switch to Light Mode");
-	    document.querySelector(".color").classList.add("fa-sun");
-	}
+        if (localStorage.getItem("theme") == "light") {
+            document.getElementById("dispButton").classList.add("btn-dark");
+            document
+                .getElementById("dispButton")
+                .setAttribute("title", "Switch to Dark Mode");
+            document.querySelector(".color").classList.add("fa-moon");
+        }
+        else {
+            document.getElementById("dispButton").classList.add("btn-light");
+            document
+                .getElementById("dispButton")
+                .setAttribute("title", "Switch to Light Mode");
+            document.querySelector(".color").classList.add("fa-sun");
+        }
     }
     else {
-	getDefaultModeColor();
+        getDefaultModeColor();
     }
 
     if (halfADayHasPassed()) {
@@ -35,59 +35,59 @@ function firstUpdate() {
     }
 
     if (localStorage.getItem("workHours")) {
-	$("#workHours").val(localStorage.getItem("workHours"));
+        $("#workHours").val(localStorage.getItem("workHours"));
     }
 
     if (localStorage.getItem("lunchMinutes")) {
-	$("#lunchMinutes").val(localStorage.getItem("lunchMinutes"));
+        $("#lunchMinutes").val(localStorage.getItem("lunchMinutes"));
     }
 
     if (localStorage.getItem("startTime")) {
-	const startTime = localStorage.getItem("startTime").match(/(\d{2})/g);
-	$("#startTime").val(startTime[0] + ":" + startTime[1]);
+        const startTime = localStorage.getItem("startTime").match(/(\d{2})/g);
+        $("#startTime").val(startTime[0] + ":" + startTime[1]);
     }
 
     if (localStorage.getItem("collapse")) {
-	$("#collapsable").collapse("show");
+        $("#collapsable").collapse("show");
     }
 
     if (localStorage.getItem("bus")) {
-	$("#bus").collapse("show");
+        $("#bus").collapse("show");
     }
 
     if (localStorage.getItem("busUrl")) {
-	$("#busUrl").val(localStorage.getItem("busUrl"));
-	loadBusIframe();
+        $("#busUrl").val(localStorage.getItem("busUrl"));
+        loadBusIframe();
     }
 
     if (localStorage.getItem("timeRemainingSwitch")) {
-	switchTimeCount();
+        switchTimeCount();
     }
     else {
-	updateTimeRemainingSwitch();
+        updateTimeRemainingSwitch();
     }
 
     $(".clockpicker input").clockpicker({
-	autoclose: true,
-	afterDone: function() {
-	    updateEndTime();
-	}
+        autoclose: true,
+        afterDone: function() {
+            updateEndTime();
+        }
     });
 
     $("#collapsable").on("shown.bs.collapse", function() {
-	localStorage.setItem("collapse", "1");
+        localStorage.setItem("collapse", "1");
     });
 
     $("#collapsable").on("hidden.bs.collapse", function() {
-	localStorage.removeItem("collapse");
+        localStorage.removeItem("collapse");
     });
 
     $("#bus").on("shown.bs.collapse", function() {
-	localStorage.setItem("bus", "1");
+        localStorage.setItem("bus", "1");
     });
 
     $("#bus").on("hidden.bs.collapse", function() {
-	localStorage.removeItem("bus");
+        localStorage.removeItem("bus");
     });
 
     $("#debugTime").on("input", updateEndTime);
@@ -97,19 +97,19 @@ function firstUpdate() {
     $("#timeRemainingSwitch").on("click", switchTimeCount);
 
     if (localStorage.getItem("lunchButton")) {
-	toggleRemoveLunch();
+        toggleRemoveLunch();
     }
 
     if (getUrlParameter("debug")) {
-	enableDebug();
+        enableDebug();
     }
 
     $("#debugSwitch").click(function() {
-	toggleDebugParameter();
+        toggleDebugParameter();
     });
 
     $("#timeRemainingSwitch").click(function() {
-	updateClock();
+        updateClock();
     });
 
     updateEndTime();
@@ -127,7 +127,7 @@ function updateEndTime() {
     date.setMinutes(startTime[1]);
 
     const calcMin = (date.getMinutes() + parseInt(lunchMinutes) +
-		     parseInt(workHours) * 60);
+                     parseInt(workHours) * 60);
     date.setMinutes(calcMin);
 
     let hours = date.getHours();
@@ -149,16 +149,16 @@ function getDefaultModeColor() {
     const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     if (isDarkMode) {
-	document.documentElement.setAttribute("data-theme", "dark");
-	document.getElementById("dispButton").classList.add("btn-light");
-	document.querySelector(".color").classList.remove("fa-moon");
-	document.querySelector(".color").classList.add("fa-sun");
+        document.documentElement.setAttribute("data-theme", "dark");
+        document.getElementById("dispButton").classList.add("btn-light");
+        document.querySelector(".color").classList.remove("fa-moon");
+        document.querySelector(".color").classList.add("fa-sun");
     }
     else {
-	document.documentElement.setAttribute("data-theme", "light");
-	document.getElementById("dispButton").classList.add("btn-dark");
-	document.querySelector(".color").classList.remove("fa-sun");
-	document.querySelector(".color").classList.add("fa-moon");
+        document.documentElement.setAttribute("data-theme", "light");
+        document.getElementById("dispButton").classList.add("btn-dark");
+        document.querySelector(".color").classList.remove("fa-sun");
+        document.querySelector(".color").classList.add("fa-moon");
     }
 }
 
@@ -168,7 +168,7 @@ function getWorkedMinutes(startDate, currentDate) {
     let countupMinutes = Math.floor((currentDate - startDate) / 60000);
 
     if (lunchEaten) {
-	countupMinutes -= parseInt(lunchMinutes);
+        countupMinutes -= parseInt(lunchMinutes);
     }
     return countupMinutes;
 }
@@ -186,7 +186,7 @@ function getStartDate() {
 
 function updateClock() {
     let countDown =
-	$("#timeRemainingSwitch").children('i').hasClass("fa-toggle-on");
+        $("#timeRemainingSwitch").children('i').hasClass("fa-toggle-on");
 
     let currentDate = new Date(Date.now());
     const debugCheckbox = document.getElementById("debugCheckbox").checked;
@@ -194,9 +194,9 @@ function updateClock() {
     let startDate = getStartDate();
 
     if (debugCheckbox) {
-	debugTime = debugTime.split(":");
-	currentDate.setHours(parseInt(debugTime[0]));
-	currentDate.setMinutes(parseInt(debugTime[1]));
+        debugTime = debugTime.split(":");
+        currentDate.setHours(parseInt(debugTime[0]));
+        currentDate.setMinutes(parseInt(debugTime[1]));
     }
 
     let countupMinutes = getWorkedMinutes(startDate, currentDate);
@@ -204,22 +204,22 @@ function updateClock() {
     let workMinutes = workHours * 60;
 
     if (countDown) {
-	let remaining =  workMinutes - countupMinutes;
-	if (remaining < 0) remaining = 0;
+        let remaining =  workMinutes - countupMinutes;
+        if (remaining < 0) remaining = 0;
 
-	$(".clock").FlipClock(remaining * 60 + 60, {countdown: true});
+        $(".clock").FlipClock(remaining * 60 + 60, {countdown: true});
     }
     else {
-	if (currentDate < startDate || countupMinutes < 0) {
-	    $(".clock").FlipClock(0, {});
-	}
-	else {
-	    $(".clock").FlipClock(countupMinutes * 60, {});
-	}
+        if (currentDate < startDate || countupMinutes < 0) {
+            $(".clock").FlipClock(0, {});
+        }
+        else {
+            $(".clock").FlipClock(countupMinutes * 60, {});
+        }
     }
 
     if (countupMinutes > workMinutes) {
-	$("#overtime").removeClass("hidden");
+        $("#overtime").removeClass("hidden");
     }
 }
 
@@ -228,12 +228,12 @@ function switchTimeCount() {
     let text = $("#timeRemainingSwitch").children('h4');
 
     if (icon.hasClass("fa-toggle-off")) {
-	icon.removeClass("fa-toggle-off");
-	icon.addClass("fa-toggle-on");
+        icon.removeClass("fa-toggle-off");
+        icon.addClass("fa-toggle-on");
     }
     else {
-	icon.removeClass("fa-toggle-on");
-	icon.addClass("fa-toggle-off");
+        icon.removeClass("fa-toggle-on");
+        icon.addClass("fa-toggle-off");
     }
 
     updateTimeRemainingSwitch();
@@ -244,12 +244,12 @@ function updateTimeRemainingSwitch() {
     let text = $("#timeRemainingSwitch").children('h4');
 
     if (icon.hasClass("fa-toggle-off")) {
-	text.html("Time worked");
-	localStorage.removeItem("timeRemainingSwitch");
+        text.html("Time worked");
+        localStorage.removeItem("timeRemainingSwitch");
     }
     else {
-	text.html("Time remaining");
-	localStorage.setItem("timeRemainingSwitch", true);
+        text.html("Time remaining");
+        localStorage.setItem("timeRemainingSwitch", true);
     }
 }
 
@@ -281,28 +281,28 @@ function toggleRemoveLunch() {
             localStorage.setItem("lunchButton", now);
         }
 
-	//CSS
-	lunchIcon.removeClass("fa-cookie");
-	lunchButton.removeClass("notEaten");
-	lunchButton.removeClass("btn-warning");
+        //CSS
+        lunchIcon.removeClass("fa-cookie");
+        lunchButton.removeClass("notEaten");
+        lunchButton.removeClass("btn-warning");
 
-	lunchIcon.addClass("fa-cookie-bite");
-	lunchButton.addClass("eaten");
-	lunchButton.addClass("btn-success");
-	lunchButton.prop("title", "Lunch eaten");
+        lunchIcon.addClass("fa-cookie-bite");
+        lunchButton.addClass("eaten");
+        lunchButton.addClass("btn-success");
+        lunchButton.prop("title", "Lunch eaten");
     }
     else {
-	localStorage.removeItem("lunchButton");
+        localStorage.removeItem("lunchButton");
 
-	//CSS
-	lunchIcon.removeClass("fa-cookie-bite");
-	lunchButton.removeClass("eaten");
-	lunchButton.removeClass("btn-success");
+        //CSS
+        lunchIcon.removeClass("fa-cookie-bite");
+        lunchButton.removeClass("eaten");
+        lunchButton.removeClass("btn-success");
 
-	lunchIcon.addClass("fa-cookie");
-	lunchButton.addClass("notEaten");
-	lunchButton.addClass("btn-warning");
-	lunchButton.prop("title", "Lunch not eaten");
+        lunchIcon.addClass("fa-cookie");
+        lunchButton.addClass("notEaten");
+        lunchButton.addClass("btn-warning");
+        lunchButton.prop("title", "Lunch not eaten");
     }
 
     updateEndTime();
@@ -318,31 +318,31 @@ function toggleColorMode() {
     let toggleButton = document.getElementById("dispButton");
 
     if (document.documentElement.getAttribute("data-theme") == "light") {
-	document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute("data-theme", "dark");
 
-	toggleButton.classList.remove("btn-dark");
-	toggleButton.classList.add("btn-light");
+        toggleButton.classList.remove("btn-dark");
+        toggleButton.classList.add("btn-light");
 
-	toggleButton.setAttribute("title", "Switch to Light Mode");
+        toggleButton.setAttribute("title", "Switch to Light Mode");
 
-	document.querySelector(".color").classList.remove("fa-moon");
-	document.querySelector(".color").classList.add("fa-sun");
+        document.querySelector(".color").classList.remove("fa-moon");
+        document.querySelector(".color").classList.add("fa-sun");
     }
     else {
-	document.documentElement.setAttribute("data-theme", "light");
+        document.documentElement.setAttribute("data-theme", "light");
 
-	toggleButton.classList.remove("btn-light");
-	toggleButton.classList.add("btn-dark");
+        toggleButton.classList.remove("btn-light");
+        toggleButton.classList.add("btn-dark");
 
-	toggleButton.setAttribute("title", "Switch to Dark Mode");
+        toggleButton.setAttribute("title", "Switch to Dark Mode");
 
-	document.querySelector(".color").classList.remove("fa-sun");
-	document.querySelector(".color").classList.add("fa-moon");
+        document.querySelector(".color").classList.remove("fa-sun");
+        document.querySelector(".color").classList.add("fa-moon");
     }
 
     localStorage.setItem(
-	"theme",
-	document.documentElement.getAttribute("data-theme")
+        "theme",
+        document.documentElement.getAttribute("data-theme")
     );
 }
 
@@ -367,25 +367,25 @@ function toggleDebugParameter() {
     let url = document.location.href;
 
     if (getUrlParameter("debug")) {
-	let debugParameter = "&debug=true";
+        let debugParameter = "&debug=true";
 
-	if (url.includes("?debug=true")) {
-	    debugParameter="?debug=true";
-	}
+        if (url.includes("?debug=true")) {
+            debugParameter="?debug=true";
+        }
 
-	url = url.replace(debugParameter,'');
+        url = url.replace(debugParameter,'');
     }
     else {
-	let debugParameter;
+        let debugParameter;
 
-	if (url.includes('?')) {
-	    debugParameter = "&debug=true";
-	}
-	else{
-	    debugParameter= "?debug=true";
-	}
+        if (url.includes('?')) {
+            debugParameter = "&debug=true";
+        }
+        else{
+            debugParameter= "?debug=true";
+        }
 
-	url += debugParameter;
+        url += debugParameter;
     }
 
     document.location = url;
@@ -409,13 +409,13 @@ function openTab(event, tabName) {
     //get contentTabs and convert to array and hide them all
     let contentTabs = [...document.getElementsByClassName("tabContent")];
     contentTabs.forEach(contentTab => {
-	contentTab.style.display = "none";
+        contentTab.style.display = "none";
     });
 
     //remove class active form all navButtons
     let navButtons = [...document.getElementsByClassName("navButton")];
     navButtons.forEach(navButton => {
-	navButton.classList.remove("active");
+        navButton.classList.remove("active");
     });
 
     //show selected tab contents and set clicked nav button as active
@@ -429,9 +429,9 @@ function openTab(event, tabName) {
 function addEventListenersToNavButtons() {
     let navButtons = [...document.getElementsByClassName("navButton")];
     navButtons.forEach(navButton => {
-	navButton.addEventListener("click", function(event) {
-	    //call openTab with event and tabName to switch active tab and contents
-	    openTab(event, navButton.innerHTML.trim());
-	});
+        navButton.addEventListener("click", function(event) {
+            //call openTab with event and tabName to switch active tab and contents
+            openTab(event, navButton.innerHTML.trim());
+        });
     });
 }

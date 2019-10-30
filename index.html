@@ -27,172 +27,172 @@
 
 <body onload="firstUpdate();">
     <div class="header">
-	<span class="workTimeText">WorkTime</span>
+        <span class="workTimeText">WorkTime</span>
     </div>
 
     <section id="workTimeSection" class="middle container-rect">
 
-	<div id="navbar">
-	    <div class="navButton active">WorkTime</div>
-	    <div class="navButton">Credits</div>
-	</div>
+        <div id="navbar">
+            <div class="navButton active">WorkTime</div>
+            <div class="navButton">Credits</div>
+        </div>
 
-	<div id="WorkTime" class="tabContent defaultTab">
-	    <div class="input-group hidden" id="debugContainer">
-		<div class="checkbox" id="debugCheckboxDiv">
-		    <input type="checkbox" id="debugCheckbox"
-			   onchange="updateEndTime();">
-		</div>
+        <div id="WorkTime" class="tabContent defaultTab">
+            <div class="input-group hidden" id="debugContainer">
+                <div class="checkbox" id="debugCheckboxDiv">
+                    <input type="checkbox" id="debugCheckbox"
+                           onchange="updateEndTime();">
+                </div>
 
-		<div class="input-group clockpicker" id="debugTimeDiv">
-		    <input id="debugTime" type="text" class="form-control" value="08:00"
-			   onKeyDown="if(event.keyCode==13) updateEndTime();">
-		    <span class="input-group-addon">
-			<span class="glyphicon glyphicon-time"></span>
-		    </span>
-		</div>
-	    </div>
+                <div class="input-group clockpicker" id="debugTimeDiv">
+                    <input id="debugTime" type="text" class="form-control" value="08:00"
+                           onKeyDown="if(event.keyCode==13) updateEndTime();">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
 
-	    <div class="input-group clockpicker">
-		<span class="input-group-addon">Start at </span>
-		<input id="startTime" type="text" class="form-control" value="08:00"
-		       onKeyDown="if(event.keyCode==13) updateEndTime();">
-		<span class="input-group-addon">
-		    <i class="far fa-clock"></i>
-		</span>
-	    </div>
+            <div class="input-group clockpicker">
+                <span class="input-group-addon">Start at </span>
+                <input id="startTime" type="text" class="form-control" value="08:00"
+                       onKeyDown="if(event.keyCode==13) updateEndTime();">
+                <span class="input-group-addon">
+                    <i class="far fa-clock"></i>
+                </span>
+            </div>
 
-	    <div class="input-group input-margin">
-		<span class="input-group-addon">Work</span>
-		<input id="workHours" type="text" class="form-control"
-		       value="8" onkeypress='return event.charCode >= 48 &&
-			   event.charCode <= 57'
-		       onKeyDown="if(event.keyCode==13) updateEndTime();">
-		<span class="input-group-addon">h</span>
-	    </div>
+            <div class="input-group input-margin">
+                <span class="input-group-addon">Work</span>
+                <input id="workHours" type="text" class="form-control"
+                       value="8" onkeypress='return event.charCode >= 48 &&
+                           event.charCode <= 57'
+                       onKeyDown="if(event.keyCode==13) updateEndTime();">
+                <span class="input-group-addon">h</span>
+            </div>
 
-	    <div class="input-group input-margin">
-		<span class="input-group-addon">Lunch</span>
-		<input id="lunchMinutes" type="text" class="form-control"
-		       value="30" onkeypress='return event.charCode >= 48 &&
-			   event.charCode <= 57'
-		       onKeyDown="if(event.keyCode==13) updateEndTime();">
-		<span class="input-group-addon">min</span>
-	    </div>
+            <div class="input-group input-margin">
+                <span class="input-group-addon">Lunch</span>
+                <input id="lunchMinutes" type="text" class="form-control"
+                       value="30" onkeypress='return event.charCode >= 48 &&
+                           event.charCode <= 57'
+                       onKeyDown="if(event.keyCode==13) updateEndTime();">
+                <span class="input-group-addon">min</span>
+            </div>
 
-	    <div class="input-group input-margin">
-		<span class="input-group-addon">Leave at </span>
-		<input id="endTime" type="text" class="form-control" value="00:00"
-		       readonly>
-		<span class="input-group-addon">
-		    <i class="far fa-clock"></i>
-		</span>
-	    </div>
+            <div class="input-group input-margin">
+                <span class="input-group-addon">Leave at </span>
+                <input id="endTime" type="text" class="form-control" value="00:00"
+                       readonly>
+                <span class="input-group-addon">
+                    <i class="far fa-clock"></i>
+                </span>
+            </div>
 
-	    <button
-		title="Show work time/overtime"
-		       id="collapseButton"
-		       class="btn btn-info middle input-margin"
-		       data-toggle="collapse"
-		       data-target="#collapsable">
-		<i class="fas fa-plus-circle"></i>
-	    </button>
+            <button
+                title="Show work time/overtime"
+                id="collapseButton"
+                class="btn btn-info middle input-margin"
+                data-toggle="collapse"
+                data-target="#collapsable">
+                <i class="fas fa-plus-circle"></i>
+            </button>
 
-	    <button
-		title="Show coming bus"
-		       id="busButton"
-		       class="btn btn-success middle input-margin"
-		       data-toggle="collapse"
-		       data-target="#bus"
-	    ><i class="fas fa-bus"></i>
-	    </button>
+            <button
+                title="Show coming bus"
+                id="busButton"
+                class="btn btn-success middle input-margin"
+                data-toggle="collapse"
+                data-target="#bus"
+            ><i class="fas fa-bus"></i>
+            </button>
 
-	    <button
-		title="Lunch not eaten"
-		       id="lunchButton"
-		       class="btn btn-warning middle input-margin notEaten"
-		       onClick="toggleRemoveLunch()"
-	    ><i class="fas fa-cookie foodIcon"></i>
-	    </button>
+            <button
+                title="Lunch not eaten"
+                id="lunchButton"
+                class="btn btn-warning middle input-margin notEaten"
+                onClick="toggleRemoveLunch()"
+            ><i class="fas fa-cookie foodIcon"></i>
+            </button>
 
-	    <button
-		title=""
-		       id="dispButton"
-		       class="btn middle input-margin"
-		       onclick="toggleColorMode()"
-	    ><i class="fas color"></i>
-	    </button>
+            <button
+                title=""
+                id="dispButton"
+                class="btn middle input-margin"
+                onclick="toggleColorMode()"
+            ><i class="fas color"></i>
+            </button>
 
-	</div>
+        </div>
 
-	<div id="Credits" class="tabContent">
-	    <a href="https://github.com/mmikaeleriksson/workTime"
-	       title="View on GitHub"
-	       class="btn btn-info"
-	       id="githubBtn"
-	    >
-		<span id="githubBtnText">View on GitHub</span>
-		<div id="githubBtnLogo"></div>
-	    </a>
+        <div id="Credits" class="tabContent">
+            <a href="https://github.com/mmikaeleriksson/workTime"
+               title="View on GitHub"
+               class="btn btn-info"
+               id="githubBtn"
+            >
+                <span id="githubBtnText">View on GitHub</span>
+                <div id="githubBtnLogo"></div>
+            </a>
 
-	    <h3>Libraries</h3>
-	    <hr>
-	    <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
-	    <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+            <h3>Libraries</h3>
+            <hr>
+            <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+            <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
 
-	    <h3>Submodules</h3>
-	    <hr>
-	    <li><a href="https://github.com/objectivehtml/FlipClock/" target="_blank">FlipClock</a></li>
-	    <li><a href="https://github.com/weareoutman/clockpicker/" target="_blank">clockpicker</a></li>
+            <h3>Submodules</h3>
+            <hr>
+            <li><a href="https://github.com/objectivehtml/FlipClock/" target="_blank">FlipClock</a></li>
+            <li><a href="https://github.com/weareoutman/clockpicker/" target="_blank">clockpicker</a></li>
 
-	    <h3>Contributors</h3>
-	    <hr>
-	    <li><a href="https://github.com/hqappz" target="_blank">hqappz</a></li>
-	    <li><a href="https://github.com/MaLarsson" target="_blank">MaLarsson</a></li>
-	    <li><a href="https://github.com/giacomomagini" target="_blank">giacomomagini</a></li>
-	    <li><a href="https://github.com/mmacq" target="_blank">mmacq</a></li>
-	    <li><a href="https://github.com/Prakhar-Srivastava" target="_blank">Prakhar-Srivastava</a></li>
-	    <li><a href="https://github.com/geraldobraz" target="_blank">geraldobraz</a></li>
-	    <li><a href="https://github.com/Jayashrri" target="_blank">Jayashrri</a></li>
-	    <li><a href="https://github.com/kimi43maro" target="_blank">kimi43maro</a></li>
-	    <li><a href="https://github.com/AlexandreInsua" target="_blank">AlexandreInsua</a></li>
-	    <li><a href="https://github.com/Shubhayu-Das" target="_blank">Shubhayu-Das</a></li>
-	    <li><a href="https://github.com/cjharkins" target="_blank">cjharkins</a></li>
-	    <li><a href="https://github.com/nyckel" target="_blank">Nyckel</a></li>
-	    <li><a href="https://github.com/jyntran" target="_blank">jyntran</a></li>
-	    <li><a href="https://github.com/luucashc" target="_blank">luucashc</a></li>
-	    <li><a href="https://github.com/mmikaeleriksson" target="_blank">mmikaeleriksson</a></li>
+            <h3>Contributors</h3>
+            <hr>
+            <li><a href="https://github.com/hqappz" target="_blank">hqappz</a></li>
+            <li><a href="https://github.com/MaLarsson" target="_blank">MaLarsson</a></li>
+            <li><a href="https://github.com/giacomomagini" target="_blank">giacomomagini</a></li>
+            <li><a href="https://github.com/mmacq" target="_blank">mmacq</a></li>
+            <li><a href="https://github.com/Prakhar-Srivastava" target="_blank">Prakhar-Srivastava</a></li>
+            <li><a href="https://github.com/geraldobraz" target="_blank">geraldobraz</a></li>
+            <li><a href="https://github.com/Jayashrri" target="_blank">Jayashrri</a></li>
+            <li><a href="https://github.com/kimi43maro" target="_blank">kimi43maro</a></li>
+            <li><a href="https://github.com/AlexandreInsua" target="_blank">AlexandreInsua</a></li>
+            <li><a href="https://github.com/Shubhayu-Das" target="_blank">Shubhayu-Das</a></li>
+            <li><a href="https://github.com/cjharkins" target="_blank">cjharkins</a></li>
+            <li><a href="https://github.com/nyckel" target="_blank">Nyckel</a></li>
+            <li><a href="https://github.com/jyntran" target="_blank">jyntran</a></li>
+            <li><a href="https://github.com/luucashc" target="_blank">luucashc</a></li>
+            <li><a href="https://github.com/mmikaeleriksson" target="_blank">mmikaeleriksson</a></li>
 
-	    <div id="debugSwitch">
-		<i class="fas fa-toggle-off fa-2x"></i>
-		<h4>Debug</h4>
-	    </div>
-	</div>
+            <div id="debugSwitch">
+                <i class="fas fa-toggle-off fa-2x"></i>
+                <h4>Debug</h4>
+            </div>
+        </div>
     </section>
 
     <div id="collapsable" class="middle collapse expandableContainer">
-	<div class="clock middle"></div>
-	<div id="timeRemainingSwitch" class="middle">
-	    <i class="fas fa-toggle-off fa-2x"></i>
-	    <h4>Time remaining</h4>
-	</div>
+        <div class="clock middle"></div>
+        <div id="timeRemainingSwitch" class="middle">
+            <i class="fas fa-toggle-off fa-2x"></i>
+            <h4>Time remaining</h4>
+        </div>
 
-	<div id="overtime" class="middle hidden">
-	    <span>Overtime</span>
-	</div>
+        <div id="overtime" class="middle hidden">
+            <span>Overtime</span>
+        </div>
     </div>
 
     <div id="bus" class="middle collapse container-rect expandableContainer">
-	<div id="busDiv" class="middle">
-	    <div id="busInput" class="input-group">
-		<span class="input-group-addon">Url</span>
-		<input id="busUrl" class="form-control"
-		       onKeyDown="if(event.keyCode==13) loadBusIframe();">
-			 </input>
-	    </div>
-	    <iframe id="busIframe"
-			src="">
-	    </iframe>
-	</div>
+        <div id="busDiv" class="middle">
+            <div id="busInput" class="input-group">
+                <span class="input-group-addon">Url</span>
+                <input id="busUrl" class="form-control"
+                       onKeyDown="if(event.keyCode==13) loadBusIframe();">
+             </input>
+            </div>
+            <iframe id="busIframe"
+                    src="">
+            </iframe>
+        </div>
     </div>
 </body>
