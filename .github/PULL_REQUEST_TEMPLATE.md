@@ -1,5 +1,3 @@
-🤖 Automated PR template 🐱‍💻
-
 This pull request resolves issue #issue number
 
 Description:<br/>
