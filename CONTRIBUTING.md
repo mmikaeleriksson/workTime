@@ -7,14 +7,8 @@ When making changes try to look into those libraries and see if something useful
 [README.md/Libraries](https://github.com/mmikaeleriksson/workTime/blob/master/README.md#libraries)
 
 ## Indentation
-This project is mainly edited via emacs editor. (Emacs default indentation style)
-
-When editing locally you are free to use any editor of your choice, but when pushing changes that are intended for a pull request, indent your changes with emacs editor and push.
-
-Major modes used for different files:
-- JavaScript: js-mode
-- Html: web-mode
-- CSS: css-mode
+This project uses four spaces as indentation.
+Make sure changes follow indentation style when making a pull request
 
 ## Pull Request
 - Submit a pull request and mention which issue number it solves.
