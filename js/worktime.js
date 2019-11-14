@@ -311,7 +311,7 @@ function toggleRemoveLunch() {
 function loadBusIframe() {
     const url = $("#busUrl").val();
     $("#busIframe").attr("src", url);
-    localStorage.setItem("busUrl", JSON.stringify(url));
+    localStorage.setItem("busUrl", url);
 }
 
 function toggleColorMode() {
