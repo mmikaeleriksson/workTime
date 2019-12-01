@@ -146,7 +146,8 @@ function updateEndTime() {
 }
 
 function getDefaultModeColor() {
-    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDarkMode =
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     if (isDarkMode) {
         document.documentElement.setAttribute("data-theme", "dark");
@@ -253,7 +254,7 @@ function updateTimeRemainingSwitch() {
     }
 }
 
-function getTime() {
+function getCurrentTime() {
     // get current date @click
     let date = new Date();
     // return current time in UNIX
@@ -261,7 +262,7 @@ function getTime() {
 }
 
 function halfADayHasPassed() {
-    let now = getTime();
+    let now = getCurrentTime();
     // get time already in storage, no return val should result in NaN
     const prevTime = parseInt(localStorage.getItem("lunchButton"));
 
@@ -273,12 +274,10 @@ function toggleRemoveLunch() {
     let lunchIcon = $(".foodIcon");
 
     if (lunchButton.hasClass("notEaten")) {
-        let now = getTime();
-        // get time already in storage, no return val should result in NaN
         const prevTime = parseInt(localStorage.getItem("lunchButton"));
 
         if (!prevTime) {
-            localStorage.setItem("lunchButton", now);
+            localStorage.setItem("lunchButton", getCurrentTime());
         }
 
         //CSS
@@ -356,7 +355,8 @@ function getUrlParameter(sParam) {
         sParameterName = sURLVariables[i].split('=');
 
         if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            return sParameterName[1] === undefined ?
+                true : decodeURIComponent(sParameterName[1]);
         }
     }
 
@@ -399,9 +399,11 @@ function enableDebug() {
     icon.addClass("fa-toggle-on");
 }
 
-/**
- * This function is used to switch between the tabs. Setting the one that was clicked on as
+/*
+ * This function is used to switch between the tabs.
+ * Setting the one that was clicked on as
  * current active and showing its contents while hiding the content of the rest.
+ *
  * @param HTMLEvent event
  * @param string tabName
  */
@@ -412,7 +414,7 @@ function openTab(event, tabName) {
         contentTab.style.display = "none";
     });
 
-    //remove class active form all navButtons
+    //remove class active from all navButtons
     let navButtons = [...document.getElementsByClassName("navButton")];
     navButtons.forEach(navButton => {
         navButton.classList.remove("active");
@@ -423,14 +425,17 @@ function openTab(event, tabName) {
     event.currentTarget.classList.add("active");
 }
 
-/**
- * This function adds event listeners to navigation buttons for them to function as intended
+/*
+ * This function adds event listeners to navigation buttons
+ * for them to function as intended
  */
 function addEventListenersToNavButtons() {
     let navButtons = [...document.getElementsByClassName("navButton")];
     navButtons.forEach(navButton => {
         navButton.addEventListener("click", function(event) {
-            //call openTab with event and tabName to switch active tab and contents
+            /*call openTab with event and tabName to switch active tab
+             * and contents
+             */
             openTab(event, navButton.innerHTML.trim());
         });
     });
