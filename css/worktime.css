@@ -88,7 +88,7 @@ body {
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
 }
 
 #closeCookieButton {
@@ -143,16 +143,6 @@ body {
     margin-bottom: 0.5em;
 }
 
-#debugCheckboxDiv {
-    float: left;
-    margin-left: 20px;
-}
-
-#debugTimeDiv {
-    float: left;
-    width: 260px;
-}
-
 #githubBtn {
     display: inline-flex;
 }
@@ -163,20 +153,12 @@ body {
     padding-left: 10px;
 }
 
-[data-theme="light"] body{
-    background: #9ceaed;
-    background: -moz-linear-gradient(-45deg, #9ceaed 0%, #7ae0ff 53%, #63aeff 100%);
-    background: -webkit-linear-gradient(-45deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%);
-    background: linear-gradient(135deg, #9ceaed 0%,#7ae0ff 53%,#63aeff 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ceaed', endColorstr='#63aeff',GradientType=1 );
+[data-theme="light"] body {
+    background: #7ae0ff;
 }
 
 [data-theme="light"] .container-rect {
     background: rgb(255,255,255);
-    background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(242,255,254,1) 100%);
-    background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%,rgba(242,255,254,1) 100%);
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(242,255,254,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2fffe',GradientType=1 );
 }
 
 [data-theme="light"] #overtime {
@@ -184,26 +166,25 @@ body {
     text-shadow: rgb(255, 255, 255) 1px 1px 0px;
 }
 
-
 [data-theme="dark"] body {
-    background: #2a4142;
-    background: -moz-linear-gradient(-45deg, #2a4142 0%, #244751 53%, #162a40 100%);
-    background: -webkit-linear-gradient(-45deg, #2a4142 0%,#244751 53%,#162a40 100%);
-    background: linear-gradient(135deg, #2a4142 0%,#244751 53%,#162a40 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ceaed', endColorstr='#63aeff',GradientType=1 );
+    background: #244751;
 }
 
 [data-theme="dark"] .container-rect {
     background: rgb(43, 43, 43,1);
-    background: -moz-linear-gradient(-45deg, rgba(43, 43, 43,1) 0%, rgba(35, 45, 47,1) 100%);
-    background: -webkit-linear-gradient(-45deg, rgba(43, 43, 43,1) 0%,rgba(35, 45, 47,1) 100%);
-    background: linear-gradient(135deg, rgba(43, 43, 43,1) 0%,rgba(35, 45, 47,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2fffe',GradientType=1 );
 }
 
 [data-theme="dark"] #overtime {
     color: #bd1b1b;
     text-shadow: rgb(70, 32, 32) 1px 1px 0px;
+}
+
+[data-theme="dark"] #About {
+    color: #fff;
+}
+
+[data-theme="dark"] #About>hr {
+    border-color: #fff;
 }
 
 [data-theme="dark"] .form-control {
@@ -216,7 +197,7 @@ body {
     background-color: #555;
 }
 
-[data-theme="dark"] .input-group-addon {
+[data-theme="dark"] .input-group-text {
     color: #fff;
     background-color: #555;
     border: 1px solid #6f848d;

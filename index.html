@@ -1,4 +1,5 @@
 <head>
+    <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="clockpicker/dist/jquery-clockpicker.js"></script>
     <script type="text/javascript" src="FlipClock/compiled/flipclock.js"></script>
@@ -6,9 +7,8 @@
     <link rel="stylesheet" type="text/css" href="clockpicker/dist/jquery-clockpicker.min.css">
     <link rel="stylesheet" type="text/css" href="FlipClock/compiled/flipclock.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!--Font Awesome CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
@@ -38,55 +38,88 @@
         </div>
 
         <div id="WorkTime" class="tabContent defaultTab">
-            <div class="input-group hidden" id="debugContainer">
-                <div class="checkbox" id="debugCheckboxDiv">
-                    <input type="checkbox" id="debugCheckbox"
-                           onchange="updateEndTime();">
-                </div>
 
-                <div class="input-group clockpicker" id="debugTimeDiv">
+            <div class="input-group hidden" id="debugContainer">
+                <div class="input-group clockpicker">
+                    <div class="input-group-prepend checkbox">
+                        <div class="input-group-text">
+                            Debug&nbsp;
+                            <input type="checkbox" id="debugCheckbox"
+                                   onchange="updateEndTime();"/>
+                        </div>
+                    </div>
                     <input id="debugTime" type="text" class="form-control" value="08:00"
-                           onKeyDown="if(event.keyCode==13) updateEndTime();">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time"></span>
-                    </span>
+                           onKeyDown="if(event.keyCode==13) updateEndTime();"/>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <div class="far fa-clock"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="input-group clockpicker">
-                <span class="input-group-addon">Start at </span>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Start at
+                    </div>
+                </div>
                 <input id="startTime" type="text" class="form-control" value="08:00"
-                       onKeyDown="if(event.keyCode==13) updateEndTime();">
-                <span class="input-group-addon">
-                    <i class="far fa-clock"></i>
-                </span>
+                       onKeyDown="if(event.keyCode==13) updateEndTime();"/>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <i class="far fa-clock"></i>
+                    </div>
+                </div>
             </div>
 
             <div class="input-group input-margin">
-                <span class="input-group-addon">Work</span>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Work
+                    </div>
+                </div>
                 <input id="workHours" type="text" class="form-control"
                        value="8" onkeypress='return event.charCode >= 48 &&
                            event.charCode <= 57'
-                       onKeyDown="if(event.keyCode==13) updateEndTime();">
-                <span class="input-group-addon">h</span>
+                       onKeyDown="if(event.keyCode==13) updateEndTime();"/>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        h
+                    </div>
+                </div>
             </div>
 
             <div class="input-group input-margin">
-                <span class="input-group-addon">Lunch</span>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Lunch
+                    </div>
+                </div>
                 <input id="lunchMinutes" type="text" class="form-control"
                        value="30" onkeypress='return event.charCode >= 48 &&
                            event.charCode <= 57'
-                       onKeyDown="if(event.keyCode==13) updateEndTime();">
-                <span class="input-group-addon">min</span>
+                       onKeyDown="if(event.keyCode==13) updateEndTime();"/>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        min
+                    </div>
+                </div>
             </div>
 
             <div class="input-group input-margin">
-                <span class="input-group-addon">Leave at </span>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Leave at
+                    </div>
+                </div>
                 <input id="endTime" type="text" class="form-control" value="00:00"
-                       readonly>
-                <span class="input-group-addon">
-                    <i class="far fa-clock"></i>
-                </span>
+                       readonly/>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <i class="far fa-clock"></i>
+                    </div>
+                </div>
             </div>
 
             <button
@@ -167,9 +200,13 @@
     <div id="bus" class="middle collapse container-rect expandableContainer">
         <div id="busDiv" class="middle">
             <div id="busInput" class="input-group">
-                <span class="input-group-addon">Url</span>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Url
+                    </div>
+                </div>
                 <input id="busUrl" class="form-control"
-                       onKeyDown="if(event.keyCode==13) loadBusIframe();">
+                       onKeyDown="if(event.keyCode==13) loadBusIframe();"/>
              </input>
             </div>
             <iframe id="busIframe"
