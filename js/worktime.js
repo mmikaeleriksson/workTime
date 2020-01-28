@@ -117,7 +117,7 @@ function firstUpdate() {
 
 function updateEndTime() {
     const workHours = getSafeValue("#workHours");
-    const lunchMinutes = getSafeValue("#lunchMinutes");
+    const lunchMinutes = getSafeValue("#lunchMinutes", "0");
     let startTime = getSafeValue("#startTime", "00:00");
 
     let date = new Date(Date.now());
