@@ -185,6 +185,17 @@ function getStartDate() {
     return startDate;
 }
 
+function updateOvertime(overtime)
+{
+    if (overtime) {
+        $("#overtime").removeClass("hidden");
+    }
+    else {
+        $("#overtime").addClass("hidden");
+    }
+
+}
+
 function updateClock() {
     let countDown =
         $("#timeRemainingSwitch").children('i').hasClass("fa-toggle-on");
@@ -219,9 +230,7 @@ function updateClock() {
         }
     }
 
-    if (countupMinutes > workMinutes) {
-        $("#overtime").removeClass("hidden");
-    }
+    updateOvertime((countupMinutes > workMinutes));
 }
 
 function switchTimeCount() {
