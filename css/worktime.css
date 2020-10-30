@@ -57,8 +57,14 @@ body {
     padding-bottom: 4em;
     padding-top: 2em;
     text-align: center;
+    margin: auto;
 }
 
+@media only screen and (max-width: 600px) {
+    .header {
+        padding: 1em 0 2em 0;
+    }
+}
 
 .workTimeText {
     font-family:'Lobster',cursive;
