@@ -313,6 +313,16 @@ body {
     background-color: #d6d2ce;
     color: black;
 }
+[data-theme="dark"] #About a {
+    color: #fff !important;
+    transition: all .3s ease-in-out;
+}
+
+[data-theme="dark"] #About a:hover {
+    color: #e9ebf0 !important;
+    text-decoration: none;
+    font-weight: 500;
+}
 
 [data-theme="dark"] #debugSwitch {
     color: #fff;
