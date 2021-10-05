@@ -14,4 +14,5 @@ Make sure changes follow indentation style when making a pull request
 - Submit a pull request and mention which issue number it solves.
 - Add yourself to the contributors in [README.md](README.md#contributors)
 
-Pull requests might not be merged directly during [#hacktoberfest](https://hacktoberfest.digitalocean.com/) so that more people have time to give the problem a try for themselves.
+## Hacktoberfest
+Pull requests might not be merged directly during [#hacktoberfest](https://hacktoberfest.digitalocean.com/) so that more people have time to give the problem a try for themselves. Acceptable pull requests will be marked with the 'hacktoberfest-accepted' label so that it counts towards your goal.
