@@ -204,6 +204,7 @@ body {
 
 [data-theme="dark"] .input-group-text {
     color: #fff;
+    width: 5rem;
     background-color: #555;
     border: 1px solid #6f848d;
 }
