@@ -1,104 +1,104 @@
 #outer {
-  display: table;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 #inner {
-  display: table-cell;
-  vertical-align: middle;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .middle {
-  margin: 0 auto;
-  padding: 10px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 .container-rect {
-  width: 300px;
-  border-radius: 8px;
-  margin-bottom: 2.5em;
+    width: 300px;
+    border-radius: 8px;
+    margin-bottom: 2.5em;
 }
 
 .input-margin {
-  margin-top: 0.5em;
+    margin-top: 0.5em;
 }
 
 body {
-  height: auto;
+    height: auto;
 }
 
 #timeRemainingSwitch,
 .clock,
 .clockRemaining {
-  width: 320px;
+    width: 320px;
 }
 
 #timeRemainingSwitch {
-  color: black;
-  display: flex;
-  flex-direction: row;
-  vertical-align: middle;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
 }
 
 #timeRemainingSwitch i {
-  align-self: center;
+    align-self: center;
 }
 
 #timeRemainingSwitch h4 {
-  display: inline-block;
-  margin: 0px 10px;
-  align-self: center;
+    display: inline-block;
+    margin: 0px 10px;
+    align-self: center;
 }
 
 .header {
-  padding-bottom: 4em;
-  padding-top: 2em;
-  text-align: center;
-  margin: auto;
+    padding-bottom: 4em;
+    padding-top: 2em;
+    text-align: center;
+    margin: auto;
 }
 
 @media only screen and (max-width: 600px) {
   .header {
-    padding: 1em 0 2em 0;
+      padding: 1em 0 2em 0;
   }
 }
 
 .workTimeText {
-  font-family: "Lobster", cursive;
-  font-size: 60pt;
-  background-color: #068eb7;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: rgba(255, 255, 255, 1) -3px -2px 0px;
+    font-family: "Lobster", cursive;
+    font-size: 60pt;
+    background-color: #068eb7;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255, 255, 255, 1) -3px -2px 0px;
 }
 
 .expandableContainer {
-  margin-top: 2.5em;
-  margin-bottom: 2.5em;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
 }
 
 #overtime {
-  width: 130px;
-  font-family: "Lobster", cursive;
-  font-size: 25pt;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
+    width: 130px;
+    font-family: "Lobster", cursive;
+    font-size: 25pt;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 #closeCookieButton {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  margin: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 10px;
 }
 
 .flip-clock-divider.seconds,
@@ -106,224 +106,224 @@ body {
 .clock ul:nth-child(9),
 .clockRemaining ul:nth-child(8),
 .clockRemaining ul:nth-child(9) {
-  display: none;
+    display: none;
 }
 
 #bus {
-  width: 345px;
+    width: 345px;
 }
 
 #busDiv {
-  margin: auto;
+    margin: auto;
 }
 
 #busInput {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 #busIframe {
-  height: 500px;
-  border: none;
+    height: 500px;
+    border: none;
 }
 
 #debugSwitch {
-  color: black;
-  display: flex;
-  margin-top: 0.5em;
+    color: black;
+    display: flex;
+    margin-top: 0.5em;
 }
 
 #debugSwitch i {
-  align-self: center;
+    align-self: center;
 }
 
 #debugSwitch h4 {
-  margin: 0px 10px;
-  align-self: center;
+    margin: 0px 10px;
+    align-self: center;
 }
 
 #debugContainer {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 #githubBtn {
-  display: inline-flex;
+    display: inline-flex;
 }
 
 #githubBtnLogo {
-  content: url(../images/GitHub-Mark-Light-32px.png);
-  height: 20px;
-  padding-left: 10px;
+    content: url(../images/GitHub-Mark-Light-32px.png);
+    height: 20px;
+    padding-left: 10px;
 }
 
 [data-theme="light"] body {
-  background: #7ae0ff;
+    background: #7ae0ff;
 }
 
 [data-theme="light"] .container-rect {
-  background: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
 }
 
 [data-theme="light"] #overtime {
-  color: #ff0000;
-  text-shadow: rgb(255, 255, 255) 1px 1px 0px;
+    color: #ff0000;
+    text-shadow: rgb(255, 255, 255) 1px 1px 0px;
 }
 
 [data-theme="dark"] body {
-  background: #244751;
+    background: #244751;
 }
 
 [data-theme="dark"] .container-rect {
-  background: rgb(43, 43, 43, 1);
+    background: rgb(43, 43, 43, 1);
 }
 
 [data-theme="dark"] #overtime {
-  color: #bd1b1b;
-  text-shadow: rgb(70, 32, 32) 1px 1px 0px;
+    color: #bd1b1b;
+    text-shadow: rgb(70, 32, 32) 1px 1px 0px;
 }
 
 [data-theme="dark"] #About {
-  color: #fff;
+    color: #fff;
 }
 
 [data-theme="dark"] #About > hr {
-  border-color: #fff;
+    border-color: #fff;
 }
 
 [data-theme="dark"] #About li a {
-  color: #7dfff9;
+    color: #7dfff9;
 }
 
 [data-theme="dark"] #About li a:hover {
-  color: #01fff2;
+    color: #01fff2;
 }
 
 [data-theme="dark"] .form-control {
-  color: #fff;
-  background-color: #383838;
-  border: 1px solid #6f848d;
+    color: #fff;
+    background-color: #383838;
+    border: 1px solid #6f848d;
 }
 
 [data-theme="dark"] .form-control[readonly] {
-  background-color: #555;
+    background-color: #555;
 }
 
 [data-theme="dark"] .input-group-text {
-  color: #fff;
-  background-color: #555;
-  border: 1px solid #6f848d;
+    color: #fff;
+    background-color: #555;
+    border: 1px solid #6f848d;
 }
 
 [data-theme="dark"] .flip-clock-label {
-  color: white !important;
+    color: white !important;
 }
 
 [data-theme="dark"] .clockpicker-popover > .popover-title {
-  background-color: #333;
-  color: #fff;
+    background-color: #333;
+    color: #fff;
 }
 
 [data-theme="dark"] .clockpicker-popover > .popover-title > .text-primary {
-  color: #2e789b;
+    color: #2e789b;
 }
 
 [data-theme="dark"] .clockpicker-popover > .popover-content {
-  background-color: #575757;
+    background-color: #575757;
 }
 
 [data-theme="dark"]
   .clockpicker-popover
   > .popover-content
   > .clockpicker-plate {
-  background-color: #333;
+    background-color: #333;
 }
 
 [data-theme="dark"] .clockpicker-tick {
-  color: #c6c6c6;
+    color: #c6c6c6;
 }
 
 [data-theme="dark"] .clockpicker-canvas-bg {
-  fill: #2e789b;
+    fill: #2e789b;
 }
 
 /* Navbar styling */
 
 #navbar {
-  margin-bottom: 20px;
-  background-color: #eee;
-  display: table;
-  width: 100%;
+    margin-bottom: 20px;
+    background-color: #eee;
+    display: table;
+    width: 100%;
 }
 
 .navButton {
-  display: table-cell;
-  width: 100px;
-  padding: 5px 10px;
-  text-align: center;
+    display: table-cell;
+    width: 100px;
+    padding: 5px 10px;
+    text-align: center;
 }
 
 .navButton:hover {
-  cursor: pointer;
-  background-color: #d6d2ce;
+    cursor: pointer;
+    background-color: #d6d2ce;
 }
 
 .navButton.active {
-  border-bottom: 2px solid teal;
+    border-bottom: 2px solid teal;
 }
 
 #navbar .navButton:not(:last-of-type) {
-  border-right: 1px solid #d6d2ce;
+    border-right: 1px solid #d6d2ce;
 }
 
 .tabContent {
-  display: none;
-  width: 100%;
+    display: none;
+    width: 100%;
 }
 
 .defaultTab {
-  display: block;
+    display: block;
 }
 
 #Credits hr {
-  margin: 0 0 5px 0;
+    margin: 0 0 5px 0;
 }
 
 [data-theme="dark"] #Credits h3 {
-  color: #fff;
+    color: #fff;
 }
 
 [data-theme="dark"] #Credits a {
-  color: #fff;
+    color: #fff;
 }
 
 [data-theme="dark"] #Credits li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 [data-theme="dark"] #Credits li::before {
-  /* Unicode bullet symbol */
-  content: "\2022 ";
-  color: #fff;
-  padding-right: 0.5em;
+    /* Unicode bullet symbol */
+    content: "\2022 ";
+    color: #fff;
+    padding-right: 0.5em;
 }
 
 [data-theme="dark"] #navbar .navButton:not(:last-of-type) {
-  border-right: 1px solid #d6d2ce;
+    border-right: 1px solid #d6d2ce;
 }
 
 [data-theme="dark"] .navButton {
-  background-color: #555555;
-  color: #fff;
+    background-color: #555555;
+    color: #fff;
 }
 
 [data-theme="dark"] .navButton:hover {
-  background-color: #d6d2ce;
-  color: black;
+    background-color: #d6d2ce;
+    color: black;
 }
 
 [data-theme="dark"] #debugSwitch {
-  color: #fff;
+    color: #fff;
 }
 
 [data-theme="dark"] #timeRemainingSwitch {
-  color: #fff;
+    color: #fff;
 }
