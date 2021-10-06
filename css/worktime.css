@@ -273,6 +273,10 @@ body {
     width: 100%;
 }
 
+.padding-top {
+    padding-top: 10px;
+}
+
 .defaultTab {
     display: block;
 }
