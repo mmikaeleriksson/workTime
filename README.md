@@ -38,3 +38,4 @@ A simple web application that helps you **count your time** that you are **spend
 - [**mmikaeleriksson**](https://github.com/mmikaeleriksson)
 - [**Saurabh-Sangam**](https://github.com/SaurabhS78)
 - [**Sergey Vakhramov**](https://github.com/websega)
+- [**rydwhelchel**](https://github.com/rydwhelchel)
