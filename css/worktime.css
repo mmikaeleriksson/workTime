@@ -333,3 +333,15 @@ body {
 [data-theme="dark"] #timeRemainingSwitch {
     color: #fff;
 }
+
+.input-group-prepend {
+    width : 30%;
+}
+
+.input-group-append {
+    width : 18%;
+}
+
+.input-group-text {
+    width: 100%;
+}

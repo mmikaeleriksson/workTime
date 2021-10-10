@@ -37,4 +37,5 @@ A simple web application that helps you **count your time** that you are **spend
 - [**luucashc**](https://github.com/luucashc)
 - [**mmikaeleriksson**](https://github.com/mmikaeleriksson)
 - [**Saurabh-Sangam**](https://github.com/SaurabhS78)
+- [**Sergey Vakhramov**](https://github.com/websega)
 - [**rydwhelchel**](https://github.com/rydwhelchel)
