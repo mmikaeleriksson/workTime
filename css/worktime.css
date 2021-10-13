@@ -175,6 +175,18 @@ body {
     background: #244751;
 }
 
+[data-theme="dark"] .about-links:link {
+    color: #009EEE;
+}
+
+[data-theme="dark"] .about-links:visited {
+    color: #009EEE;
+}
+
+[data-theme="dark"] .about-links:hover {
+    color:#00BEEE;
+}
+
 [data-theme="dark"] .container-rect {
     background: rgb(43, 43, 43,1);
 }
@@ -324,4 +336,16 @@ body {
 
 [data-theme="dark"] #timeRemainingSwitch {
     color: #fff;
+}
+
+.input-group-prepend {
+    width : 30%;
+}
+
+.input-group-append {
+    width : 18%;
+}
+
+.input-group-text {
+    width: 100%;
 }
